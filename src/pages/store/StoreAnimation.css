@@ -1,0 +1,32 @@
+.storecontent-slider {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+  }
+  
+  .storecard-slider {
+    overflow: hidden;
+    padding: 1rem 0;
+    background: none;
+  }
+  
+  .storeslide {
+    white-space: nowrap;
+    animation: 23s storeslide infinite linear;
+  }
+  
+  .storeslide img {
+    height: 100px;
+    margin: 0 40px;
+    object-fit: cover;
+  }
+  
+  @keyframes storeslide {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+  

@@ -1,0 +1,90 @@
+/*backgroundcard*/
+.formbg {
+    background-color: #030637;
+    border: solid 4px #9500ff;
+  }
+  
+  .card-img-overlay h1 {
+      color:rgb(255, 1, 1);
+      text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+      font-size: 200px;
+      
+      
+  }
+  
+  .card-img-overlay a {
+      text-decoration: none;
+      color: white;
+      text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+      font-size: 35px;
+      font-weight: bold;
+      overflow: auto;
+  }
+  
+  /* buttons */
+  
+  
+  .animebutton {
+    background-color: #C21292;
+    color:white;
+    border: #C21292 ;
+    /* border-radius: 30%;
+    padding: 10px 15px;
+    margin-left: 10px; */
+  }
+  
+  .animebutton:hover{
+    background-color: #910A67 !important;
+    color:white !important;
+    border: #910A67 !important;
+  }
+  
+  /* Estilo para la sección de búsqueda */
+  #row-search-results {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+    
+    /* Estilo para las cards de búsqueda */
+    .search-card {
+      width: 25%;
+      margin-bottom: 20px;
+    }
+    
+    /* Estilo para la imagen dentro de la card */
+    .search-card img {
+      height: 300px;
+      object-fit: cover;
+      width: 100%;
+    }
+    
+  /* Estilo para el fondo del cuadro de diálogo modal */
+  #synopsisModal .modal-content {
+      background-color: #030637;
+      color: white;
+    }
+    
+    /* Estilo para el fondo del botón de cierre del modal */
+    #synopsisModal .btn-close {
+      background-color: #C21292;
+      color: white;
+    }
+    
+    /* Estilo para el fondo del cuerpo del modal */
+    #synopsisContent {
+      background-color: #030637;
+      color: white;
+    }
+    
+    /* Estilo para el botón de cierre del modal */
+    #synopsisModal .modal-footer .btn-secondary {
+      background-color: #C21292;
+      color: white;
+    }
+    
+    /* Estilo para el botón de cierre del modal al pasar el ratón sobre él */
+    #synopsisModal .modal-footer .btn-secondary:hover {
+      background-color: #C21292;
+      color: white;
+    }

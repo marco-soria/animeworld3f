@@ -1,0 +1,41 @@
+/*card*/
+.formbg {
+    background-color: #030637;
+    border: solid 4px #9500ff;
+  }
+  
+  /*button*/
+  .storebutton {
+    background-color: #C21292 !important;
+    color:white !important;
+    border: #C21292 !important;
+  }
+  
+  .storebutton:hover{
+    background-color: #910A67 !important;
+    color:white !important;
+    border: #910A67 !important;
+  }
+
+  /*categories*/
+
+#js-categories-list {
+    background-color: #030637;
+     /* Ajusta el relleno según tu preferencia */
+    border-radius: 5px; /* Ajusta el radio de borde según tu preferencia */
+  }
+  
+  #js-categories-list li {
+    background-color: #030637;
+    border: solid 2px #9500ff;
+    border-radius: 5px;
+    color: #9500ff; 
+    transition: background-color 0.3; /
+  }
+  
+  #js-categories-list li:hover {
+    background-color: #7a00d1;
+    color: white; /* Cambia el color cuando se pasa el ratón */
+  }
+
+  

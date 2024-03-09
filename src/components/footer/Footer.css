@@ -1,0 +1,121 @@
+
+/* footer */
+footer {
+    background-color: #030637;
+}
+
+.footerContainer {
+    width: 100%;
+    padding: 20px 20px;
+    
+}
+
+.mediaIcons {
+    display: flex;
+    justify-content: center;
+    
+}
+
+
+/* .fa-icon {
+    font-size: 2em;
+    color: #030637;
+    margin: 20px;
+    opacity: 0.7;
+}
+
+.fa-icon:hover {
+    color: #9e02f9;
+    transition: 0.5s;
+} */
+
+
+
+.mediaIcons a {
+    text-decoration: none;
+    padding: 10px;
+    /* background-color: #9e02f9;  */
+    margin: 10px;
+    border-radius: 50%;
+    font-size: 2em;
+    
+}
+
+/* .mediaIcons a .fa-icon{
+    
+    color: #030637;
+    opacity: 0.9;
+    z-index: 1;
+    
+} */
+
+.mediaIcons a:hover{
+    background-color: #030637;
+    transition: 0.5s;
+}
+
+/* .mediaIcons a .fa-icon:hover{
+    color: #9e02f9;
+    transition: 0.5s;
+} 
+ */
+
+ 
+
+
+
+.footerNav {
+    margin: 30px 0;
+}
+
+.footerNav ul{
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+}
+
+.footerNav ul li a{
+    margin: 20px;
+    text-decoration: none;
+    font-size: 1.3em;
+    opacity: 0.7s;
+    transition: 0.5s;
+    color: #9e02f9;
+}
+
+.footerNav ul li a:hover{
+  color: #C21292;
+  transition: 1s;
+}
+
+.footerCopyright{
+    padding: 20px;
+    text-align: center;
+}
+
+.footerCopyright p{
+    color: #9e02f9;
+}
+
+.designer{
+    opacity: 0.7px;
+    color: #9e02f9;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 400px;
+    margin: 0px 5px;
+}
+
+
+@media (max-width: 992px){
+    .footerNav ul{
+        display: flex;
+        flex-direction: column;
+        padding-left: 0;
+    }
+    .footerNav ul li{
+        width: 100%;
+        text-align:center;
+        margin: 10px;
+    }
+}

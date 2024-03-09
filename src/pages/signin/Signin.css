@@ -1,0 +1,54 @@
+/*backgroundcard*/
+.formbg {
+    background-color: #030637;
+    border: solid 3px #C21292;
+    border-radius: 1%;
+  }
+  
+  /*card buttons*/
+  
+  .signinbutton {
+    background-color: #E26EE5;
+    color:white;
+    border: #E26EE5;
+    width: 49%;
+   /*  border-radius: 30%;
+    padding: 10px 15px;
+    margin-right: 10px; */
+  }
+  
+  .signinbutton:hover{
+    background-color: #b346b7 !important;
+    color:white !important;
+    border: #b346b7 !important ;
+  }
+  
+  .signupbutton {
+    background-color: #C21292;
+    color:white;
+    border: #C21292 ;
+    width: 49%;
+    /* border-radius: 30%;
+    padding: 10px 15px;
+    margin-left: 10px; */
+  }
+  
+  .signupbutton:hover{
+    background-color: #910A67 !important;
+    color:white !important;
+    border: #910A67 !important;
+  }
+
+  .lasthover {
+    color: skyblue;
+    text-decoration: none;
+  }
+  
+  .lasthover:hover{
+    color: blue important!;
+    transition: 1s;
+  }
+  
+  .form-check-label{
+    color: skyblue;
+  }

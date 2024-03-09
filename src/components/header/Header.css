@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,700;1,100;1,400&display=swap');
+
+
+
+/* navbar */
+.navbar {
+    font-size: 32px;
+    background: #030637;
+    border: 1px solid #030637;
+    padding: 0 !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed !important;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+  
+  .main-nav {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0; 
+  }
+  
+  .nav-links {
+    text-decoration: none;
+    color: #9e02f9;
+    font-size: 25px;
+  }
+
+  .nav-links:hover {
+    color: #C21292;
+    transition: 1s;
+  }
+
+  .divlogo {
+    margin-left: 15px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+  } 
+
+  .logo {
+    padding-left: 10px;
+    font-size: 35px; 
+    font-weight: bold;
+    text-decoration: none; 
+    color: #9e02f9;
+    /* margin: 10px; */
+}
+
+  .logo:hover {
+    color: #C21292;
+    transition: 1s;
+  }
+  
+  .main-nav li {
+    text-align: center;
+    margin: 15px 20px;
+  }
+  
+  .navbar-toggle {
+    display: none;
+  }
+
+
+@media screen and (max-width: 992px) {
+  .main-nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px !important;
+    right: 0;
+    background: #030637;
+    width: 100%;
+    margin: 0;
+    z-index: 1100;
+  }
+
+  .main-nav.active {
+    display: flex;
+  }
+
+  /* .nav-links {
+    margin: 10px 20px;
+  } */
+
+  .logo {
+    margin: 10px;
+    padding-left: 10px;
+  }
+
+  .navbar-toggle {
+  display: block;
+  position: absolute;
+  top: 50%; 
+  transform: translateY(-50%); 
+  right: 20px;
+  color: #9e02f9;
+  font-size: 20px;
+  }
+
+  .navbar-toggle i {
+    margin-right: 10px;
+    /* color: #C21292 */
+  }
+
+  .nav-links {
+    text-decoration: none;
+    color: #9e02f9;
+    font-size: 20px;
+  }
+}
+
+/* .navbar-toggle i:hover {
+  color: #C21292;
+    transition: 1s;
+} */
+
+@media screen and (max-width: 768px) {
+  
+
+  /* .logo{
+    font-size: 30px;
+  } */
+  /* .divlogo img {
+    height: 50px;
+    width: 50px
+  } */
+
+  .nav-links {
+    text-decoration: none;
+    color: #9e02f9;
+    font-size: 20px;
+  }
+
+}
+
+.navbar.navbar {
+  padding: 0 !important;
+  border:0 !important;
+}
+
+.div.divlogo {
+  margin: 0 !important;
+}
+

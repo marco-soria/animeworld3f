@@ -1,0 +1,22 @@
+/*backgroundcard*/
+.formbg {
+    background-color: #030637;
+    border: solid 4px #9500ff;
+  }
+  
+  .card-img-overlay h1 {
+      color:rgb(255, 1, 1);
+      text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+      font-size: 200px;
+      
+      
+  }
+  
+  .card-img-overlay a {
+      text-decoration: none;
+      color: white;
+      text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+      font-size: 35px;
+      font-weight: bold;
+      overflow: auto;
+  }

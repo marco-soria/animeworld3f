@@ -1,0 +1,106 @@
+
+
+/*backgroundcard*/
+
+hr{
+    border: solid 2px;
+    border-color: gray;
+}
+
+.mainhr {
+    border: solid 2px;	
+    border-color: #E26EE5;
+    opacity: 1;
+}
+
+.newsbutton {
+  background-color: #C21292;
+  color:white;
+  border: #C21292
+}
+
+.newsbutton:hover{
+  background-color: #910A67 !important;
+  color:white !important;
+  border: #910A67 !important;
+}
+
+/*card buttons*/
+
+
+
+
+
+
+/*overlay*/
+.overlay {
+    /* position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0; */
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+  }
+
+/*newslinks*/
+
+.newslinks {
+    text-decoration: none;
+    color: #9e02f9;
+  }
+
+  .newslinks:hover {
+    color: #C21292;
+    transition: 1s;
+  } 
+
+/*frontlinks*/
+
+/* .frontlinks {
+    color: white;
+    text-shadow: 0 0 3px #FF0000 0 0 5px #0000FF;
+  }
+
+  .frontlinks:hover {
+    color: #C21292;
+    transition: 0.5s;
+  } */
+
+/*secondary links*/
+.firstsecondarylink {
+    color: white;
+    text-decoration: none;
+}  
+
+.firstsecondarylink h4 {
+    text-align: justify;
+}
+
+.firstsecondarylink:hover {
+    color: #C21292;
+    transition: 0.5s;
+}
+
+
+
+.secondsecondarylink {
+    color: #9e02f9;
+    text-decoration: none;
+}
+
+.secondsecondarylink:hover {
+    color: #C21292;
+    transition: 0.5s;
+}
+
+/*cardstars*/
+
+/* .card-stars:hover {
+    color: #fd0050 !important;
+    transition: 1s;
+  } */
+
+.newsh6 {
+    color: white;
+}	
