@@ -7,7 +7,7 @@
 /*backgroundcard*/
 .formbg {
     background-color: #030637;
-    border: solid 4px #9500ff;
+    border: solid 4px #9500ff !important;
   }
   
   .card-img-overlay h1 {

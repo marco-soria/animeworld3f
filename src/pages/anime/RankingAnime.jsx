@@ -22,30 +22,32 @@ const RankingAnime = () => {
   useEffect(() => {
     const url = "https://api.jikan.moe/v4/top/anime";
     
-    const obtenerAnime = async () => {
+    const getAnime = async () => {
       try {
         const response = await fetch(`${url}?limit=12`);
         const data = await response.json();
-        setAnimeList(data.data);
+        // Ordenar los animes por ranking de menor a mayor
+        const sortedAnimeList = data.data.sort((a, b) => a.rank - b.rank);
+        setAnimeList(sortedAnimeList);
       } catch (error) {
-        console.error('Error al obtener anime:', error);
+        console.error('Error getting anime:', error);
       }
     };
     
-    obtenerAnime();
+    getAnime();
   }, []);
 
   return (
     <section className="container-fluid mb-4">
       <IconContext.Provider value={{ color: '#C21292', size: '24px' }}>
-      <div className="row" id="row-ranking">
-        <div className="col-md-12 d-flex align-items-center" style={{ border: 'solid 3px' }}>
-          <FaStar className='mb-1' />
-          <h2 className="fs-2" style={{ margin: '0px 5px' }}>Ranking</h2>
-          <FaStar className='mb-1' />
+        <div className="row" id="row-ranking">
+          <div className="col-md-12 d-flex align-items-center" style={{ border: 'solid 3px' }}>
+            <FaStar className='mb-1' />
+            <h2 className="fs-2" style={{ margin: '0px 5px' }}>Ranking</h2>
+            <FaStar className='mb-1' />
+          </div>
         </div>
-      </div>
-    </IconContext.Provider>
+      </IconContext.Provider>
 
       <div className="row" id="row-ranking">
         {animeList.map((result, index) => {
@@ -100,6 +102,7 @@ const RankingAnime = () => {
 };
 
 export { RankingAnime };
+
 
 
 
