@@ -10,12 +10,27 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@ckeditor/ckeditor5-build-classic": "^41.2.1",
+    "@ckeditor/ckeditor5-react": "^6.2.0",
+    "@paypal/react-paypal-js": "^8.2.0",
     "axios": "^1.6.7",
     "bootstrap": "^5.3.2",
+    "chart.js": "^4.4.2",
+    "dayjs": "^1.11.10",
+    "js-cookie": "^3.0.5",
+    "jwt-decode": "^4.0.0",
+    "prettier": "^3.2.5",
     "react": "^18.2.0",
+    "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.51.1",
     "react-icons": "^5.0.1",
-    "react-router-dom": "^6.22.0"
+    "react-photo-album": "^2.3.1",
+    "react-router-dom": "^6.22.0",
+    "simple-zustand-devtools": "^1.1.0",
+    "sweetalert2": "^11.10.7",
+    "yet-another-react-lightbox": "^3.17.1",
+    "zustand": "^4.5.2"
   },
   "devDependencies": {
     "@types/react": "^18.2.55",
