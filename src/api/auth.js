@@ -1,6 +1,53 @@
 import { create } from 'zustand';
 import axios from './axios';
 import { jwtDecode } from 'jwt-decode';
+import { API_URL } from './constants'; // Importa la URL base de la API desde constants.js
+import Swal from 'sweetalert2';
+
+// Configuring global toast notifications using Swal.mixin
+const Toast = Swal.mixin({
+    toast: true,
+    position: 'top',
+    showConfirmButton: false,
+    timer: 1500,
+    timerProgressBar: true,
+});
+
+// Function to handle user login
+export const login = async (email, password) => {
+    try {
+        // Making a POST request to obtain user tokens
+        const { data, status } = await axios.post('user/token/', {
+            email,
+            password,
+        });
+
+        console.log(data)
+        console.log(status)
+
+        // If the request is successful (status code 200), set authentication user and display success toast
+        if (status === 200) {
+            setAuthUser(data.access, data.refresh);
+
+            // Displaying a success toast notification
+            Toast.fire({
+                icon: 'success',
+                title: 'Signed in successfully'
+            });
+        }
+
+        // Returning data and error information
+        return { data, error: null };
+    } catch (error) {
+        // Handling errors and returning data and error information
+        return {
+            data: null,
+            error: error.response.data?.detail || 'Something went wrong',
+        };
+    }
+};
+
+
 
 const useAuthStore = create((set, get) => ({
     allUserData: null,
@@ -21,40 +68,7 @@ const useAuthStore = create((set, get) => ({
 
     isLoggedIn: () => get().allUserData !== null,
 
-    login: async (email, password) => {
-        try {
-            const { data, status } = await axios.post('login/', {
-                email,
-                password,
-            });
-
-            if (status === 200) {
-                setAuthUser(data.access_token, data.refresh_token);
-                // Aquí puedes agregar lógica adicional después de iniciar sesión, como redireccionar a una página diferente
-            }
-
-            return { data, error: null };
-        } catch (error) {
-            return {
-                data: null,
-                error: error.response.data?.detail || 'Something went wrong',
-            };
-        }
-    },
-
-    logout: () => {
-        localStorage.removeItem('access_token');
-        localStorage.removeItem('refresh_token');
-        get().setUser(null);
-        // Aquí puedes agregar lógica adicional después de cerrar sesión, como redireccionar a una página diferente
-    },
-
-    setUserOnPageLoad: () => {
-        const accessToken = localStorage.getItem('access_token');
-        if (accessToken) {
-            setAuthUser(accessToken);
-        }
-    }
+    
 }));
 
 const setAuthUser = (access_token, refresh_token = null) => {
@@ -73,3 +87,4 @@ const setAuthUser = (access_token, refresh_token = null) => {
 };
 
 export { useAuthStore };
+
