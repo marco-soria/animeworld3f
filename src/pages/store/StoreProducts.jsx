@@ -63,14 +63,24 @@ const StoreProducts = () => {
 
   const toggleFavorite = async (productId) => {
     try {
-      const response = await axios.post(`${API_URL}/products/${productId}/toggle_favorite/`);
-      setFilteredProducts(prevProducts => prevProducts.map(product =>
-        product.id === productId ? { ...product, is_favorite: response.data.is_favorite } : product
-      ));
+      // Obtener el producto correspondiente
+      const product = productsData.find(product => product.id === productId);
+  
+      // Cambiar el estado del favorito localmente mientras se espera la respuesta de la API
+      setFilteredProducts(prevProducts => prevProducts.map(prevProduct => {
+        if (prevProduct.id === productId) {
+          return { ...prevProduct, is_favorite: !prevProduct.is_favorite };
+        }
+        return prevProduct;
+      }));
+  
+      // Enviar solicitud a la API para cambiar el estado del favorito
+      await axios.post(`${API_URL}/products/${productId}/toggle_favorite/`);
     } catch (error) {
       console.error('Error toggling favorite:', error);
     }
   };
+  
 
   const handleSearch = (e) => {
     const searchTerm = e.target.value.toLowerCase();
