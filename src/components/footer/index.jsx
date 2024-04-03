@@ -24,7 +24,7 @@ const Footer = () => {
             <li><a href="/anime">Anime</a></li>
             <li><a href="/news">News</a></li>
             <li><a href="/store">Store</a></li>
-            <li><a href="/signin">Sign in</a></li>
+            
           </ul>
         </div>
         <div className="footerCopyright">

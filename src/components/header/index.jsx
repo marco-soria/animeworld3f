@@ -50,11 +50,7 @@ const Header = () => {
             Store
           </Link>
         </li>
-        <li>
-          <Link to="/signin" className="nav-links" onClick={handleLinkClick}>
-            Sign in
-          </Link>
-        </li>
+        
       </ul>
     </nav>
   );
