@@ -13,17 +13,19 @@ export const Cart = () => {
     localStorage.setItem("cart", JSON.stringify(newCart));
   };
 
+  const total = cart.reduce((acc, product) => acc + product.total, 0);
+
   return (
     <div>
       <h1>Carrito</h1>
       <table>
         <thead>
           <tr>
-            <th>Producto</th>
-            <th>Cantidad</th>
-            <th>Precio</th>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price</th>
             <th>Total</th>
-            <th>Acciones</th>
+            <th>Actionss</th>
           </tr>
         </thead>
         <tbody>
@@ -52,6 +54,7 @@ export const Cart = () => {
           )}
         </tbody>
       </table>
+      <span>total : {total}</span><br/>
       <Link to='/order'>Generate Order</Link>
     </div>
   );
