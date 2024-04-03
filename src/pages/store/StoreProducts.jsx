@@ -33,7 +33,7 @@ const StoreProducts = () => {
     return filteredProducts.map(product => (
       <div key={product.id} className="col-md-3 col-6 mb-4">
         <div className="card formbg">
-          <img src={`http://res.cloudinary.com/dh5kaw1ea/${product.image}`} className="card border-0" alt={product.name} style={{ height: '40vh', objectFit: 'cover' }} />
+          <img src={product.image} className="card border-0" alt={product.name} style={{ height: '40vh', objectFit: 'cover' }} />
           <div className="card-body">
             <h5 className="card-title" style={{ color: '#9500ff', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{product.name}</h5>
             <p className="card-text fs-5">{`$${parseFloat(product.price).toFixed(2)}`}</p>
