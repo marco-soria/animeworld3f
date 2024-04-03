@@ -31,7 +31,7 @@ export const Order = () => {
 
   return(
     <>
-    <h1>Confirmar Pedido</h1>
+    <h1 style={{ marginTop: '80px' }}>Confirmar Pedido</h1>
     <h2>Datos del Usuario</h2>
     <form>
         Nombre : <input type="text" name="firstName" value={firstName}/>

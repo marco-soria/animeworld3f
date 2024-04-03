@@ -1,66 +1,74 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { login } from '../../api/auth';
-import { useAuthStore } from '../../api/auth';
-import { Link } from 'react-router-dom';
+import { useState } from "react";
+import { postLoginService } from "../../services/auth_services";
+import { useNavigate } from "react-router-dom";
 
-const Login = () => {
-    const navigate = useNavigate();
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const isLoggedIn = useAuthStore((state) => state.isLoggedIn);
-    const [isLoading, setIsLoading] = useState(false);
-    const [error, setError] = useState(null);
+export const Login = () => {
+  const navigate = useNavigate();
+  const [credentials, setCredentials] = useState({
+    email: "", 
+    password: "",
+  });
 
-    useEffect(() => {
-        if (isLoggedIn()) {
-            navigate('/');
-        }
-    }, [isLoggedIn, navigate]);
+  const handleInputChange = (e) => {
+    setCredentials({
+      ...credentials,
+      [e.target.name]: e.currentTarget.value,
+    });
+  };
 
-    const resetForm = () => {
-        setEmail('');
-        setPassword('');
-    };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-    const handleLogin = async (e) => {
-        e.preventDefault();
-        setIsLoading(true);
-        setError(null);
+    postLoginService(credentials).then((data) => {
+      if (!data) {
+        alert("Usuario o contraseña incorrectos");
+        return;
+      }
 
-        try {
-            const { data } = await login(email, password);
-            if (data && data.detail === 'Login successful') {
-                navigate('/');
-                resetForm();
-            } else {
-                setError('Invalid email or password');
-            }
-        } catch (error) {
-            setError('Something went wrong. Please try again later.');
-        }
+      localStorage.setItem("access_token", data.access);
+      localStorage.setItem("refresh_token", data.refresh);
+      navigate("/OrderDemo");
+    });
+  };
 
-        setIsLoading(false);
-    };
-
-    return (
-        <div className="container" style={{ marginTop: '80px' }}>
-            <h2>Login</h2>
-            {error && <p>{error}</p>}
-            <form onSubmit={handleLogin}>
-                <div>
-                    <label htmlFor="email">Email:</label>
-                    <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-                </div>
-                <div>
-                    <label htmlFor="password">Password:</label>
-                    <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                </div>
-                <button type="submit" disabled={isLoading}>{isLoading ? 'Loading...' : 'Login'}</button>
-            </form>
-            <p>Do not have an account? <Link to="/register">Register</Link></p>
+  return (
+    <div>
+      <h1>Iniciar sesión</h1>
+      <form
+        onSubmit={handleSubmit}
+        className="max-w-96 rounded-xl border p-5 flex flex-col gap-5"
+      >
+        <div className="flex flex-col gap-2">
+          <label htmlFor="email" className="w-full"> 
+            Usuario
+          </label>
+          <input
+            id="email"
+            type="text"
+            name="email"
+            onChange={handleInputChange}
+            className="w-full"
+          />
         </div>
-    );
+        <div className="flex flex-col gap-2">
+          <label htmlFor="password" className="w-full">
+            Contraseña
+          </label>
+          <input
+            id="password"
+            type="password"
+            name="password"
+            onChange={handleInputChange}
+            className="w-full"
+          />
+        </div>
+        <button
+          type="submit"
+          className="px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm text-gray-900"
+        >
+          Ingresar
+        </button>
+      </form>
+    </div>
+  );
 };
-
-export default Login;

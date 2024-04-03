@@ -8,7 +8,8 @@ import Store from './pages/store';
 import SignIn from './pages/signin';
 import Home from './pages/home';
 import News from './pages/news';
-import Login from './pages/auth/Login';
+import { Login } from './pages/auth/Login';
+import OrderDemo from './pages/orders/OrderDemo';
 // import News from './components/pages/News';
 // import Store from './components/pages/Store';
 // import SignIn from './components/pages/SignIn';
@@ -24,6 +25,8 @@ const Router = () => {
           <Route path='/store' element={<Store></Store>}> </Route>
           <Route path='/signin' element={<SignIn></SignIn>}> </Route>
           <Route path='/login' element={<Login></Login>}> </Route>
+          <Route path='/orderdemo' element={<OrderDemo></OrderDemo>}> </Route>
+
             
             
         </Routes>

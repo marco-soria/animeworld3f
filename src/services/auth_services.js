@@ -49,22 +49,3 @@ export const getUserProfile = async () =>{
   }
 }
 
-export const getClientProfileByUserId = async (userId) =>{
-  try{
-    
-    const response = await fetch(`${API_URL}/client/byuser/${userId}`, {
-      method: "GET"
-    });
-
-    if (!response.ok) {
-      return null;
-    }
-
-    const data = await response.json();
-    return data;
-
-  }catch(error){
-    console.log(error);
-    return null;
-  }
-}
