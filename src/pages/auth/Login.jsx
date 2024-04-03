@@ -21,13 +21,13 @@ export const Login = () => {
 
     postLoginService(credentials).then((data) => {
       if (!data) {
-        alert("Usuario o contraseña incorrectos");
+        alert("Email or password incorrect");
         return;
       }
 
       localStorage.setItem("access_token", data.access);
       localStorage.setItem("refresh_token", data.refresh);
-      navigate("/OrderDemo");
+      navigate("/Order");
     });
   };
 
@@ -40,7 +40,7 @@ export const Login = () => {
       >
         <div className="flex flex-col gap-2">
           <label htmlFor="email" className="w-full"> 
-            Usuario
+            Email
           </label>
           <input
             id="email"
@@ -52,7 +52,7 @@ export const Login = () => {
         </div>
         <div className="flex flex-col gap-2">
           <label htmlFor="password" className="w-full">
-            Contraseña
+            Password
           </label>
           <input
             id="password"
@@ -66,7 +66,7 @@ export const Login = () => {
           type="submit"
           className="px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm text-gray-900"
         >
-          Ingresar
+          Enter
         </button>
       </form>
     </div>

@@ -38,7 +38,7 @@ const StoreProducts = () => {
             <h5 className="card-title" style={{ color: '#9500ff', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{product.name}</h5>
             <p className="card-text fs-5">{`$${parseFloat(product.price).toFixed(2)}`}</p>
             <div className="d-flex justify-content-between align-items-center">
-              <button className="btn btn-primary storebutton mt-2">Add to Cart</button>
+              <button className="btn btn-primary storebutton mt-2" onClick={() => handleAddToCart(product)}>Add to Cart</button>
               <IconContext.Provider value={{ color: '#C21292', size: '24px' }}>
                 {product.is_favorite ? (
                   <FaHeart
@@ -59,6 +59,22 @@ const StoreProducts = () => {
         </div>
       </div>
     ));
+  };
+
+  const handleAddToCart = (product) => {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const productInCartIndex = cart.findIndex(item => item.id === product.id);
+
+    if (productInCartIndex !== -1) {
+      // Incrementar la cantidad si el producto ya está en el carrito
+      cart[productInCartIndex].quantity++;
+    } else {
+      // Agregar el producto al carrito si no está presente
+      cart.push({ ...product, quantity: 1 });
+    }
+
+    // Guardar el carrito en el almacenamiento local
+    localStorage.setItem("cart", JSON.stringify(cart));
   };
 
   const toggleFavorite = async (productId) => {

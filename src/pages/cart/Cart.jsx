@@ -47,12 +47,12 @@ export const Cart = () => {
             ))
           ) : (
             <tr>
-              <td>Carrito sin productos</td>
+              <td>Cart without Products</td>
             </tr>
           )}
         </tbody>
       </table>
-      <Link to='/order'>GENERAR PEDIDO</Link>
+      <Link to='/order'>Generate Order</Link>
     </div>
   );
 };

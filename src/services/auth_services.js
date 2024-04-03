@@ -32,7 +32,7 @@ export const getUserProfile = async () =>{
     console.log(jsonPayload.user_id)
     const user_id = jsonPayload.user_id;
     
-    const response = await fetch(`${API_URL}/user/${user_id}`, {
+    const response = await fetch(`${API_URL}/users/${user_id}`, {
       method: "GET"
     });
 
