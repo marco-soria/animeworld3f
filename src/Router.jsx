@@ -12,6 +12,7 @@ import { Login } from './pages/auth/Login';
 import OrderDemo from './pages/orders/OrderDemo';
 import { Cart } from './pages/cart/Cart';
 import { Order } from './pages/orders/Order';
+import { Register } from './pages/auth/Register';
 // import News from './components/pages/News';
 // import Store from './components/pages/Store';
 // import SignIn from './components/pages/SignIn';
@@ -30,6 +31,7 @@ const Router = () => {
           <Route path='/orderdemo' element={<OrderDemo></OrderDemo>}> </Route>
           <Route path='/cart' element={<Cart></Cart>}> </Route>
           <Route path='/order' element={<Order></Order>}> </Route>
+          <Route path='/register' element={<Register></Register>}> </Route>
 
             
             

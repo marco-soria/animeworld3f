@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { postLoginService } from "../../services/auth_services";
-import { useNavigate } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 
 export const Login = () => {
   const navigate = useNavigate();
   const [credentials, setCredentials] = useState({
-    email: "", 
+    username: "",
     password: "",
   });
 
@@ -21,13 +21,13 @@ export const Login = () => {
 
     postLoginService(credentials).then((data) => {
       if (!data) {
-        alert("Email or password incorrect");
+        alert("Usuario o contraseña incorrectos");
         return;
       }
 
       localStorage.setItem("access_token", data.access);
       localStorage.setItem("refresh_token", data.refresh);
-      navigate("/Order");
+      navigate("/order");
     });
   };
 
@@ -39,20 +39,20 @@ export const Login = () => {
         className="max-w-96 rounded-xl border p-5 flex flex-col gap-5"
       >
         <div className="flex flex-col gap-2">
-          <label htmlFor="email" className="w-full"> 
-            Email
+          <label htmlFor="password" className="w-full">
+            Usuario
           </label>
           <input
-            id="email"
+            id="username"
             type="text"
-            name="email"
+            name="username"
             onChange={handleInputChange}
             className="w-full"
           />
         </div>
         <div className="flex flex-col gap-2">
           <label htmlFor="password" className="w-full">
-            Password
+            Contraseña
           </label>
           <input
             id="password"
@@ -66,9 +66,10 @@ export const Login = () => {
           type="submit"
           className="px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm text-gray-900"
         >
-          Enter
+          Ingresar
         </button>
       </form>
+      <Link to="/register">Nuevo Cliente</Link>
     </div>
   );
 };

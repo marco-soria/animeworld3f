@@ -18,6 +18,7 @@ const StoreProducts = () => {
   const fetchProducts = async () => {
     try {
       const response = await axios.get(`${API_URL}/products/`);
+      console.log(response.data)
       setProductsData(response.data);
       setFilteredProducts(response.data);
     } catch (error) {
