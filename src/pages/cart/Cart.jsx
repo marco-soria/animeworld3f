@@ -17,16 +17,16 @@ export const Cart = () => {
   const total = cart.reduce((acc, product) => acc + product.total, 0);
 
   return (
-    <div>
-      <h1>Carrito</h1>
+    <div style={{ marginTop: '80px' }}>
+      <h1>Cart</h1>
       <table>
         <thead>
           <tr>
-            <th>Producto</th>
-            <th>Cantidad</th>
-            <th>Precio</th>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price</th>
             <th>Total</th>
-            <th>Acciones</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -50,13 +50,13 @@ export const Cart = () => {
             ))
           ) : (
             <tr>
-              <td>Carrito sin productos</td>
+              <td>Empty Cart</td>
             </tr>
           )}
         </tbody>
       </table>
       <span>total : {parseFloat(total).toFixed(2)}</span>
-      <Link to='/order'>GENERAR PEDIDO</Link>
+      <Link to='/order'>Generate Order</Link>
     </div>
   );
 };
