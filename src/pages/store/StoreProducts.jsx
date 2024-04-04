@@ -63,19 +63,34 @@ const StoreProducts = () => {
   };
 
   const handleAddToCart = (product) => {
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
-    const productInCartIndex = cart.findIndex(item => item.id === product.id);
+    const cart = localStorage.getItem("cart") || "[]";
+    const cartParsed = JSON.parse(cart);
+    const productInCart = cartParsed.find((item) => item.id === product.id);
 
-    if (productInCartIndex !== -1) {
-      // Incrementar la cantidad si el producto ya está en el carrito
-      cart[productInCartIndex].quantity++;
-    } else {
-      // Agregar el producto al carrito si no está presente
-      cart.push({ ...product, quantity: 1 });
+    if (productInCart) {
+      const newCart = cartParsed.map((item) => {
+        if (item.id === product.id) {
+          return {
+            ...item,
+            quantity: item.quantity + 1,
+            total: (parseFloat(item.total) + parseFloat(item.price)).toFixed(2),
+          };
+        }
+
+        return item;
+      });
+      console.log(newCart)
+      localStorage.setItem("cart", JSON.stringify(newCart));
+      return;
     }
 
-    // Guardar el carrito en el almacenamiento local
-    localStorage.setItem("cart", JSON.stringify(cart));
+    const newProduct = {
+      ...product,
+      quantity: 1,
+      total: parseFloat(product.price).toFixed(2),
+    };
+
+    localStorage.setItem("cart", JSON.stringify([...cartParsed, newProduct]));
   };
 
   const toggleFavorite = async (productId) => {
