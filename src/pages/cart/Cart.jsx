@@ -23,7 +23,7 @@ export const Cart = () => {
         return {
           ...product,
           quantity: product.quantity - 1,
-          total: (product.quantity - 1) * product.price,
+          total: ((product.quantity - 1) * product.price).toFixed(2),
         };
       }
       return product;
@@ -38,7 +38,7 @@ export const Cart = () => {
         return {
           ...product,
           quantity: product.quantity + 1,
-          total: (product.quantity + 1) * product.price,
+          total: ((product.quantity + 1) * product.price).toFixed(2),
         };
       }
       return product;
@@ -81,10 +81,10 @@ export const Cart = () => {
                     <td>{product.price}</td>
                     <td>{product.total}</td>
                     <td>
-                      <button
+                      <button 
                         type="button"
                         onClick={() => handleDecreaseQuantity(product.id)}
-                        className="btn btn-secondary btn-sm"
+                        className="btn btn-primary btn-sm m-1"
                         disabled={product.quantity <= 1}
                       >
                         -
@@ -92,14 +92,14 @@ export const Cart = () => {
                       <button
                         type="button"
                         onClick={() => handleIncreaseQuantity(product.id)}
-                        className="btn btn-success btn-sm"
+                        className="btn btn-primary btn-sm m-1"
                       >
                         +
                       </button>
                       <button
                         type="button"
                         onClick={() => handleDeleteProduct(product.id)}
-                        className="btn btn-danger btn-sm"
+                        className="btn btn-danger btn-sm m-1"
                       >
                         X
                       </button>
@@ -108,7 +108,8 @@ export const Cart = () => {
                 ))
               ) : (
                 <tr>
-                  <td colSpan="7">Empty Cart</td>
+                  <td colSpan="7" style={{backgroundColor: "#030637", color:"#9e02f9"}}>Empty Cart:  <Link to='/store' className="btn btn-secondary generateOrder mx-3">Go to Store</Link></td>
+                 
                 </tr>
               )}
             </tbody>
@@ -117,7 +118,7 @@ export const Cart = () => {
         <div className="col-md-3">
           <div className="card summary p-4">
           <p className="fs-4"> Total: USD {parseFloat(total).toFixed(2)}</p>
-          <Link to='/order' className="btn btn-secondary generateOrder">Generate Order</Link>
+          <Link to='/order' className={`btn btn-secondary generateOrder ${cart.length === 0 ? 'disabled' : ''}`}>Generate Order</Link>
           </div>
         </div>
       </div>

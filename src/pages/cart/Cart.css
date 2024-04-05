@@ -31,3 +31,9 @@ table {
     color:white !important;
     border: #910A67 !important;
 }
+
+.generateOrder.disabled {
+    background-color: #b346b7;
+    border-color: #b346b7;
+    pointer-events: none; /* Para evitar que el botón sea interactivo cuando está deshabilitado */
+  }
