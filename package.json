@@ -28,7 +28,7 @@
     "react-photo-album": "^2.3.1",
     "react-router-dom": "^6.22.0",
     "simple-zustand-devtools": "^1.1.0",
-    "sweetalert2": "^11.10.7",
+    "sweetalert2": "^11.6.13",
     "yet-another-react-lightbox": "^3.17.1",
     "zustand": "^4.5.2"
   },

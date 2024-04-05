@@ -14,7 +14,8 @@ export const Cart = () => {
 
   };
 
-  const total = cart.reduce((acc, product) => acc + product.total, 0);
+  const total = cart.reduce((acc, product) => acc + parseFloat(product.total), 0);
+
 
   return (
     <div style={{ marginTop: '80px' }}>
