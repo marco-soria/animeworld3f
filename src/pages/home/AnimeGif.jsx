@@ -10,17 +10,17 @@ const AnimeGif = () => {
     <div className="row d-flex justify-content-center">
         <div className="col-md-4 mb-3">
             <div className="card border-0"> 
-                <img src={ Sakura } className="card w-100" style={{height: '70vh',  objectFit: 'cover', border: 'solid 1px #9500ff'}} alt=""/>
+                <img src={ Sakura } className="card w-100" style={{height: '600px',  objectFit: 'cover', border: 'solid 1px #9500ff'}} alt=""/>
             </div>
         </div>
         <div className="col-md-4 mb-3">
             <div className="card border-0">
-                <img src={ Rikka } className="card w-100" style={{height: '70vh',  objectFit: 'cover', border: 'solid 1px #9500ff'}} alt=""/>
+                <img src={ Rikka } className="card w-100" style={{height: '600px',  objectFit: 'cover', border: 'solid 1px #9500ff'}} alt=""/>
             </div>
         </div>
         <div className="col-md-4 mb-2">
             <div className="card border-0">
-                <img src={ Chika } className="card w-100" style={{height: '70vh',  objectFit: 'cover', border: 'solid 1px #9500ff'}} alt=""/>
+                <img src={ Chika } className="card w-100" style={{height: '600px',  objectFit: 'cover', border: 'solid 1px #9500ff'}} alt=""/>
             </div>
         </div>
     </div>

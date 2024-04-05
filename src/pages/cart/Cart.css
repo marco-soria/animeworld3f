@@ -1,0 +1,33 @@
+table {
+    border-color: #7a00d1 !important;
+    
+}
+ 
+.tr-cartheader th {
+    background-color: #7a00d1 !important;
+    color: white !important;
+}
+
+.tr-cartcontent td {
+    background-color: #030637 !important;
+    color: #9e02f9 !important;
+}
+
+.summary {
+    background-color: #030637;
+    border-color: #7a00d1 ;
+    margin-left: 20px;
+    
+}
+
+.generateOrder {
+    background-color: #C21292;
+    color:white;
+    border: #C21292
+}
+
+.generateOrder:hover {
+    background-color: #910A67 !important;
+    color:white !important;
+    border: #910A67 !important;
+}

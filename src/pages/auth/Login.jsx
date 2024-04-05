@@ -21,7 +21,7 @@ export const Login = () => {
 
     postLoginService(credentials).then((data) => {
       if (!data) {
-        alert("Usuario o contraseña incorrectos");
+        alert("Incorrect credentials");
         return;
       }
 
@@ -40,7 +40,7 @@ export const Login = () => {
       >
         <div className="flex flex-col gap-2">
           <label htmlFor="password" className="w-full">
-            Usuario
+            Username
           </label>
           <input
             id="username"
@@ -52,7 +52,7 @@ export const Login = () => {
         </div>
         <div className="flex flex-col gap-2">
           <label htmlFor="password" className="w-full">
-            Contraseña
+            Password
           </label>
           <input
             id="password"
@@ -69,7 +69,7 @@ export const Login = () => {
           Ingresar
         </button>
       </form>
-      <Link to="/register">Nuevo Cliente</Link>
+      <Link to="/register">Sign Up</Link>
     </div>
   );
 };
