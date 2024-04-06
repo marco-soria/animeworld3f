@@ -1,17 +1,18 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import {postClientFullService} from "../../services/auth_services";
+import { Link, useNavigate } from "react-router-dom";
+import { postClientFullService } from "../../services/auth_services";
+import SignInImage from '../../assets/signin/momosignin.jpg';
 
 export const Register = () => {
   const navigate = useNavigate();
   const [client, setClient] = useState({
     username: "",
     password: "",
-    first_name:"",
-    last_name:"",
-    email:"",
-    phone:"",
-    address:""
+    first_name: "",
+    last_name: "",
+    email: "",
+    phone: "",
+    address: ""
   });
 
   const handleInputChange = (e) => {
@@ -24,113 +25,109 @@ export const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    postClientFullService(client).then((data) => {
-      if (!data) {
-        alert("hubo un error");
-        return;
-      }
-      navigate("/login");
-    });
+    postClientFullService(client)
+      .then((data) => {
+        if (!data) {
+          alert("Hubo un error");
+          return;
+        }
+        navigate("/login");
+      })
+      .catch((error) => {
+        console.error("Error al registrar el cliente:", error);
+        alert("Hubo un error al registrar el cliente");
+      });
   };
 
   return (
-    <div>
-      <h1>Registar Nuevo Cliente</h1>
-      <form
-        onSubmit={handleSubmit}
-        className="max-w-96 rounded-xl border p-5 flex flex-col gap-5"
-      >
-        <div className="flex flex-col gap-2">
-          <label htmlFor="password" className="w-full">
-            Usuario
-          </label>
-          <input
-            id="username"
-            type="text"
-            name="username"
-            onChange={handleInputChange}
-            className="w-full"
-          />
+    <div className="container" style={{ marginTop: '80px' }}>
+      <div className="row justify-content-center">
+        <div className="col-md-6 p-0">
+          <div className="card border-0 formbg" id="signupCard">
+            <div className="card-body ">
+              <h2 className="formheading mb-3">Create your account</h2>
+              <img src={SignInImage} className="img-fluid" alt="Signup Image" />
+              
+              <form onSubmit={handleSubmit} id="signupForm">
+                <div className="mb-3 mt-3">
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Username"
+                    name="username"
+                    value={client.username}
+                    onChange={handleInputChange}
+                  />
+                </div>
+                <div className="mb-3">
+                  <input
+                    type="password"
+                    className="form-control"
+                    placeholder="Password"
+                    name="password"
+                    value={client.password}
+                    onChange={handleInputChange}
+                  />
+                </div>
+                <div className="mb-3">
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="First Name"
+                    name="first_name"
+                    value={client.first_name}
+                    onChange={handleInputChange}
+                  />
+                </div>
+                <div className="mb-3">
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Last Name"
+                    name="last_name"
+                    value={client.last_name}
+                    onChange={handleInputChange}
+                  />
+                </div>
+                <div className="mb-3">
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Email"
+                    name="email"
+                    value={client.email}
+                    onChange={handleInputChange}
+                  />
+                </div>
+                <div className="mb-3">
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Phone Number"
+                    name="phone"
+                    value={client.phone}
+                    onChange={handleInputChange}
+                  />
+                </div>
+                <div className="mb-3">
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Address"
+                    name="address"
+                    value={client.address}
+                    onChange={handleInputChange}
+                  />
+                </div>
+                <div className="mb-3 d-flex justify-content-between">
+                  <button type="submit" className="btn btn-secondary signupbutton">Sign Up</button>
+                  <Link to="/login" className="btn btn-secondary signinbutton">Sign In</Link>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-2">
-          <label htmlFor="password" className="w-full">
-            Contraseña
-          </label>
-          <input
-            id="password"
-            type="password"
-            name="password"
-            onChange={handleInputChange}
-            className="w-full"
-          />
-        </div>
-        <div className="flex flex-col gap-2">
-          <label htmlFor="password" className="w-full">
-            Nombre
-          </label>
-          <input
-            id="first_name"
-            type="text"
-            name="first_name"
-            onChange={handleInputChange}
-            className="w-full"
-          />
-        </div>
-        <div className="flex flex-col gap-2">
-          <label htmlFor="password" className="w-full">
-            Apellidos
-          </label>
-          <input
-            id="last_name"
-            type="text"
-            name="last_name"
-            onChange={handleInputChange}
-            className="w-full"
-          />
-        </div>
-        <div className="flex flex-col gap-2">
-          <label htmlFor="password" className="w-full">
-            Email
-          </label>
-          <input
-            id="email"
-            type="text"
-            name="email"
-            onChange={handleInputChange}
-            className="w-full"
-          />
-        </div>
-        <div className="flex flex-col gap-2">
-          <label htmlFor="password" className="w-full">
-            Telefono
-          </label>
-          <input
-            id="phone"
-            type="text"
-            name="phone"
-            onChange={handleInputChange}
-            className="w-full"
-          />
-        </div>
-        <div className="flex flex-col gap-2">
-          <label htmlFor="password" className="w-full">
-            Dirección
-          </label>
-          <input
-            id="address"
-            type="text"
-            name="address"
-            onChange={handleInputChange}
-            className="w-full"
-          />
-        </div>
-        <button
-          type="submit"
-          className="px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm text-gray-900"
-        >
-          Registrar Nuevo Cliente
-        </button>
-      </form>
+      </div>
     </div>
   );
 };

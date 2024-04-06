@@ -31,12 +31,12 @@ export const Order = () => {
 
   getUserProfile().then((data) => {
     if (data) {
-      console.log(data);
+      // console.log(data);
       setFirstName(data.first_name)
       setLastName(data.last_name)
       setEmail(data.email)
       getClientProfileByUserId(data.id).then((data)=>{
-        console.log(data)
+        // console.log(data)
         setClientId(data.id)
         setAdress(data.address);
         setPhone(data.phone);

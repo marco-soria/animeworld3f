@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { postLoginService } from "../../services/auth_services";
 import { Link,useNavigate } from "react-router-dom";
+import './Login.css';
+import SignInImage from '../../assets/signin/momosignin.jpg';
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -32,44 +34,50 @@ export const Login = () => {
   };
 
   return (
-    <div>
-      <h1>Iniciar sesión</h1>
-      <form
-        onSubmit={handleSubmit}
-        className="max-w-96 rounded-xl border p-5 flex flex-col gap-5"
-      >
-        <div className="flex flex-col gap-2">
-          <label htmlFor="password" className="w-full">
-            Username
-          </label>
-          <input
-            id="username"
-            type="text"
-            name="username"
-            onChange={handleInputChange}
-            className="w-full"
-          />
+    <div className="container" style={{ marginTop: '80px' }}>
+      <div className="row justify-content-center">
+        <div className="col-md-6 p-0">
+          <div className="card border-0 formbg" id="signupCard">
+            <div className="card-body ">
+              <h2 className="formheading mb-3">Authentication</h2>
+            <img src={SignInImage} className="img-fluid" alt="Signup Image" />
+              <form onSubmit={handleSubmit} id="loginForm">
+                <div className="mb-3 mt-3">
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Username"
+                    name="username"
+                    value={credentials.username}
+                    onChange={handleInputChange}
+                  />
+                </div>
+                <div className="mb-3">
+                  <input
+                    type="password"
+                    className="form-control"
+                    placeholder="Password"
+                    name="password"
+                    value={credentials.password}
+                    onChange={handleInputChange}
+                  />
+                </div>
+                {/* <div className="mb-3" id="forgotPasswordContainer">
+                  <Link to="#" id="forgotPasswordLink" className="lasthover">Forgot your password?</Link>
+                </div> */}
+                <div className="mb-3 d-none" id="subscribeContainer">
+                  <input type="checkbox" className="form-check-input" id="subscribeCheckbox" />
+                  <label className="form-check-label" htmlFor="subscribeCheckbox">Subscribe to this website</label>
+                </div>
+                <div className="mb-3 d-flex justify-content-between">
+                  <button type="submit" className="btn btn-secondary signinbutton">Sign In</button>
+                  <Link to="/register" className="btn btn-secondary signupbutton">Sign Up</Link>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-2">
-          <label htmlFor="password" className="w-full">
-            Password
-          </label>
-          <input
-            id="password"
-            type="password"
-            name="password"
-            onChange={handleInputChange}
-            className="w-full"
-          />
-        </div>
-        <button
-          type="submit"
-          className="px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm text-gray-900"
-        >
-          Ingresar
-        </button>
-      </form>
-      <Link to="/register">Sign Up</Link>
+      </div>
     </div>
   );
 };
