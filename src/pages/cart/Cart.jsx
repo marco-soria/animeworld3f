@@ -116,9 +116,10 @@ export const Cart = () => {
           </table>
         </div>
         <div className="col-md-3">
-          <div className="card summary p-4">
+          <div className="card summary p-4 d-flex justify-content-center align-items-center">
           <p className="fs-4"> Total: USD {parseFloat(total).toFixed(2)}</p>
           <Link to='/order' className={`btn btn-secondary generateOrder ${cart.length === 0 ? 'disabled' : ''}`}>Generate Order</Link>
+          <Link to='/store' className="mt-2 linkstorecart"> Continue Buying</Link>
           </div>
         </div>
       </div>

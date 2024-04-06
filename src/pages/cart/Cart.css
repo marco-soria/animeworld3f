@@ -37,3 +37,11 @@ table {
     border-color: #b346b7;
     pointer-events: none; /* Para evitar que el botón sea interactivo cuando está deshabilitado */
   }
+
+.linkstorecart {
+    color: #9e02f9;;
+}
+
+.linkstorecart:hover {
+    color: #7a00d1;
+}

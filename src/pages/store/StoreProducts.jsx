@@ -3,6 +3,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './StoreProducts.css';
 import { FaRegHeart, FaHeart } from "react-icons/fa";
+import { FaCartShopping } from "react-icons/fa6";
+
+import { Link } from 'react-router-dom';
+
 import { IconContext } from 'react-icons';
 import axios from 'axios';
 import { API_URL } from '../../helpers/api';
@@ -39,7 +43,15 @@ const StoreProducts = () => {
             <h5 className="card-title" style={{ color: '#9500ff', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{product.name}</h5>
             <p className="card-text fs-5">{`$${parseFloat(product.price).toFixed(2)}`}</p>
             <div className="d-flex justify-content-between align-items-center">
-              <button className="btn btn-primary storebutton mt-2" onClick={() => handleAddToCart(product)}>Add to Cart</button>
+              <div>
+              <button className="btn btn-primary storebutton mt-2 me-2" onClick={() => handleAddToCart(product)}>Add to Cart</button>
+              <Link to="/cart">
+                <IconContext.Provider value={{ color: '#C21292', size: '24px' }}>
+                  <FaCartShopping className="cart-icon" style={{ cursor: 'pointer', size: '200px', color: '#ff0088' }} onClick={() => {}} />
+                </IconContext.Provider>
+              </Link>
+              
+              </div>
               <IconContext.Provider value={{ color: '#C21292', size: '24px' }}>
                 {product.is_favorite ? (
                   <FaHeart
