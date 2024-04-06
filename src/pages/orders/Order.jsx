@@ -1,9 +1,10 @@
-import { Navigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { isAuthenticated } from "../../helpers/auth";
 import {getUserProfile,getClientProfileByUserId} from '../../services/auth_services';
 import { useState } from "react";
 import { postNewOrder } from "../../services/order_services";
 import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js';
+import "./Order.css";
 
 export const Order = () => {
   const [newOrder,setNewOrder] = useState({})
@@ -65,77 +66,153 @@ export const Order = () => {
 
   return(
     <>
-    <h1 style={{ marginTop: '80px' }}>Confirm Order</h1>
-    <form onSubmit={handleSubmit}>
-        <h2>User Information</h2>
-        First Name : <input type="text" name="firstName" value={firstName}/>
-        Last Name: <input type="text" name="lastName" value={lastName}/>
-        Email :<input type="text" name="email" value={email}/>
-        <h2>Client Information</h2>
-        Address : <input type="text" name="address" value={address}/>
-        Phone : <input type="text" name="phone" value={phone}/>
-        <button
-          type="submit"
-          className="px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm text-gray-900"
-        >
-          Register Order
-        </button>
-    </form>
-    <table>
-        <thead>
-          <tr>
-            <th>Product</th>
-            <th>Quantity</th>
-            <th>Price</th>
-            <th>Total</th>
-          </tr>
-        </thead>
-        <tbody>
-          {cart.length > 0 ? (
-            cart.map((product) => (
-              <tr key={product.id}>
-                <td>{product.name}</td>
-                <td>{product.quantity}</td>
-                <td>{product.price}</td>
-                <td>{product.total}</td>
+    <div className="container">
+      <h1 style={{ marginTop: '80px' }}>Order & Payment</h1>
+      <form onSubmit={handleSubmit} id="orderForm">
+                <div className="mb-3">
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="First Name"
+                    name="firstName"
+                    value={firstName}
+                    onChange={(e) => setFirstName(e.target.value)}
+                  />
+                </div>
+                <div className="mb-3">
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Last Name"
+                    name="lastName"
+                    value={lastName}
+                    onChange={(e) => setLastName(e.target.value)}
+                  />
+                </div>
+                <div className="mb-3">
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Email"
+                    name="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                </div>
+                <div className="mb-3">
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Address"
+                    name="address"
+                    value={address}
+                    onChange={(e) => setAddress(e.target.value)}
+                  />
+                </div>
+                <div className="mb-3">
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Phone"
+                    name="phone"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                  />
+                </div>
+                <button type="submit" className="btn btn-primary">Register Order</button>
+              </form>
+              <br />
+
+      <h2>Cart Summary</h2>
+      <div className="row">
+        <div className="col">
+          <table className="table table-bordered text-center align-middle">
+            <thead>
+              <tr className="tr-cartheader">
+                <th scope="col">#</th>
+                <th scope="col">Image</th>
+                <th scope="col">Product</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Price</th>
+                <th scope="col">Total</th>
               </tr>
-            ))
-          ) : (
-            <tr>
-              <td>Empty Cart</td>
-            </tr>
-          )}
-        </tbody>
-      </table>
-      <span>total : {total}</span><br/>
-      {Object.keys(newOrder).length !== 0 && (
-        <span>Order: {newOrder.code}</span>
-      )}
-      <PayPalScriptProvider options={initialOptions}>
-        <PayPalButtons 
-        createOrder={(data, actions) => {
-          return actions.order.create({
-            purchase_units: [
-              {
-                amount: {
-                  value: total,
-                },
-                invoice_number: newOrder.code // Pasar el número de factura
-              },
-            ],
-          });
-        }}
-        onApprove={(data, actions) => {
-          return actions.order.capture().then(function(details) {
-            console.log("Order Result : ",details)
-            const invoiceNumber = details.purchase_units[0].invoice_number; // Obtener el número de factura
-            alert('The Order was payed ' + invoiceNumber);
-            // Manejar el número de factura según sea necesario
-          });
-        }}
+            </thead>
+            <tbody>
+              {cart.length > 0 ? (
+                cart.map((product, index) => (
+                  <tr className="tr-cartcontent" key={product.id}>
+                    <td>{index + 1}</td>
+                    <td><img src={product.image} style={{ height: "150px", width: "100px" }} alt={product.name} /></td>
+                    <td>{product.name}</td>
+                    <td>{product.quantity}</td>
+                    <td>{product.price}</td>
+                    <td>{product.total}</td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan="4" className="text-center">Empty Cart</td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
+        {/* <div className="col-md-3">
+          <div className="card summary p-4 d-flex justify-content-center align-items-center">
+            <p className="fs-4"> Total: USD {parseFloat(total).toFixed(2)}</p>
+            
+            
+          </div>
+        </div> */}
+      </div>
+
+        <div className="card ordersummary d-flex justify-content-center align-items-center fs-2">
+          
+        <p>Total: USD {total}</p>
+        </div>
+        <br/>
+        {Object.keys(newOrder).length !== 0 && (
+          <span>Order: {newOrder.code}</span>
+        )}
         
-        />
-      </PayPalScriptProvider>
+        <br />
+
+        <div>
+          <h2>Pay Checkout</h2>
+          <div className="">
+        <PayPalScriptProvider options={initialOptions}>
+          <PayPalButtons
+          style = {{
+            disableMaxWidth: true
+          }}
+          createOrder={(data, actions) => {
+            return actions.order.create({
+              purchase_units: [
+                {
+                  amount: {
+                    value: total,
+                  },
+                  invoice_number: newOrder.code // Pasar el número de factura
+                },
+              ],
+            });
+          }}
+          onApprove={(data, actions) => {
+            return actions.order.capture().then(function(details) {
+              console.log("Order Result : ",details)
+              const invoiceNumber = details.purchase_units[0].invoice_number; // Obtener el número de factura
+              alert('The Order was payed ' + invoiceNumber);
+              // Manejar el número de factura según sea necesario
+            });
+          }}
+          
+          />
+        </PayPalScriptProvider>
+        </div>
+        </div>
+
+        <Link to='/cart' className="mt-2 linkstorecart"> Return to cart</Link>
+      </div>
     </>
   )
 };
