@@ -5,7 +5,6 @@ import { useState } from "react";
 import { postNewOrder } from "../../services/order_services";
 import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js';
 import "./Order.css";
-import {Cart} from '../cart/Cart'
 
 export const Order = () => {
   const [newOrder,setNewOrder] = useState({})
@@ -48,21 +47,15 @@ export const Order = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
-    console.log("Submitting order:", { clientId });
-  
+
     postNewOrder(clientId).then((data) => {
       if (!data) {
-        console.error("Error registering the order.");
         alert("There was an error registering the order. Please try again.");
         return;
       }
-      console.log("Order registered:", data);
-      setNewOrder(data);
-      alert("Order registered!!!");
-    }).catch((error) => {
-      console.error("Error registering the order:", error);
-      alert("There was an error registering the order. Please try again.");
+      console.log("order registered : ",data)
+      setNewOrder(data)
+      alert("order registered!!!");
     });
   };
 
@@ -223,5 +216,3 @@ export const Order = () => {
     </>
   )
 };
-
-export default Order;

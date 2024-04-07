@@ -5,6 +5,7 @@ import { useState } from "react";
 import { postNewOrder } from "../../services/order_services";
 import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js';
 import "./Order.css";
+import {Cart} from '../cart/Cart'
 
 export const Order = () => {
   const [newOrder,setNewOrder] = useState({})
@@ -47,21 +48,52 @@ export const Order = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
+    console.log("Submitting order:", { clientId });
+  
     postNewOrder(clientId).then((data) => {
       if (!data) {
+        console.error("Error registering the order.");
         alert("There was an error registering the order. Please try again.");
         return;
       }
-      console.log("order registered : ",data)
-      setNewOrder(data)
-      alert("order registered!!!");
+      console.log("Order registered:", data);
+      setNewOrder(data);
+      alert("Order registered!!!");
+    }).catch((error) => {
+      console.error("Error registering the order:", error);
+      alert("There was an error registering the order. Please try again.");
     });
   };
 
-  const aproovePayment = () =>{
-    alert("payment aprooved")
-  }
+  const handleOrderCreation = async () => {
+    const userData = await getUserProfile();
+    if (!userData) {
+      console.error("Error getting user data.");
+      alert("There was an error getting user data. Please try again.");
+      return;
+    }
+  
+    const clientData = await getClientProfileByUserId(userData.id);
+    if (!clientData) {
+      console.error("Error getting client data.");
+      alert("There was an error getting client data. Please try again.");
+      return;
+    }
+  
+    const clientId = clientData.id;
+    console.log("Submitting order:", { clientId });
+  
+    const data = await postNewOrder(clientId);
+    if (!data) {
+      console.error("Error registering the order.");
+      alert("There was an error registering the order. Please try again.");
+      return;
+    }
+    console.log("Order registered:", data);
+    setNewOrder(data);
+    alert("Order registered!!!");
+  };
   
 
   return(
@@ -119,7 +151,7 @@ export const Order = () => {
                     onChange={(e) => setPhone(e.target.value)}
                   />
                 </div>
-                <button type="submit" className="btn btn-primary">Register Order</button>
+                {/* <button type="submit" className="btn btn-primary">Register Order</button> */}
               </form>
               <br />
 
@@ -180,34 +212,43 @@ export const Order = () => {
         <div>
           <h2>Pay Checkout</h2>
           <div className="">
-        <PayPalScriptProvider options={initialOptions}>
-          <PayPalButtons
-          style = {{
-            disableMaxWidth: true
-          }}
-          createOrder={(data, actions) => {
-            return actions.order.create({
-              purchase_units: [
-                {
-                  amount: {
-                    value: total,
-                  },
-                  invoice_number: newOrder.code // Pasar el número de factura
-                },
-              ],
-            });
-          }}
-          onApprove={(data, actions) => {
-            return actions.order.capture().then(function(details) {
-              console.log("Order Result : ",details)
-              const invoiceNumber = details.purchase_units[0].invoice_number; // Obtener el número de factura
-              alert('The Order was payed ' + invoiceNumber);
-              // Manejar el número de factura según sea necesario
-            });
-          }}
-          
-          />
-        </PayPalScriptProvider>
+          <PayPalScriptProvider options={initialOptions}>
+            <PayPalButtons
+              style = {{
+                disableMaxWidth: true
+              }}
+              createOrder={(data, actions) => {
+                return actions.order.create({
+                  purchase_units: [
+                    {
+                      amount: {
+                        value: total,
+                      },
+                      invoice_number: newOrder.code // Pasar el número de factura
+                    },
+                  ],
+                });
+              }}
+              onApprove={async (data, actions) => {
+                await actions.order.capture().then(async function(details) {
+                  console.log("Order Result : ",details)
+                  const invoiceNumber = details.purchase_units[0].invoice_number; // Obtener el número de factura
+                  alert('The Order was payed ' + invoiceNumber);
+                  // Manejar el número de factura según sea necesario
+
+                  // Crear la orden
+                  await handleOrderCreation();
+
+                  // Vaciar el carrito
+                  setCart([]);
+                  localStorage.setItem("cart", JSON.stringify([]));
+
+                  // Redirigir al usuario a la ruta /store
+                  window.location.href = "/store";
+                });
+              }}
+            />
+          </PayPalScriptProvider>
         </div>
         </div>
 
@@ -216,3 +257,4 @@ export const Order = () => {
     </>
   )
 };
+
