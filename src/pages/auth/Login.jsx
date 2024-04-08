@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { postLoginService } from "../../services/auth_services";
-import { Link,useNavigate } from "react-router-dom";
+import { Link,useLocation, useNavigate } from "react-router-dom";
 import './Login.css';
 import SignInImage from '../../assets/signin/momosignin.jpg';
 
 export const Login = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [credentials, setCredentials] = useState({
     username: "",
     password: "",
@@ -29,7 +30,8 @@ export const Login = () => {
 
       localStorage.setItem("access_token", data.access);
       localStorage.setItem("refresh_token", data.refresh);
-      navigate("/order");
+      const next = location.state?.from || '/'; // Ruta por defecto o ruta previa
+      navigate(next);
     });
   };
 

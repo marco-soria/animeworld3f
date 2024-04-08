@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Routes} from 'react-router-dom'
+import { BrowserRouter, Route, Routes, Outlet, Navigate, useLocation} from 'react-router-dom'
 import  { Header } from './components/header';
 import { Footer } from './components/footer';
 // import Home from './components/pages/Home';
@@ -16,22 +16,37 @@ import { Register } from './pages/auth/Register';
 // import News from './components/pages/News';
 // import Store from './components/pages/Store';
 // import SignIn from './components/pages/SignIn';
+import { useNavigate } from 'react-router-dom';
+import { isAuthenticated } from './helpers/auth';
+import { PrivateRoute } from './pages/auth/PrivateRoute';
+
+
+const PrivateWrapper = ({ children }) => {
+  const location = useLocation();
+  return isAuthenticated() ? children : <Navigate to="/login" replace state={{ from: location.pathname }} />;
+};
+
 
 const Router = () => {
+  
+  
+
   return (
     <BrowserRouter>
         <Header></Header>
         <Routes>
-          <Route path='/' element={<Home></Home>}> </Route>
-          <Route path='/anime' element={<Anime></Anime>}> </Route>
-          <Route path='/news' element={<News></News>}> </Route>
-          <Route path='/store' element={<Store></Store>}> </Route>
-          <Route path='/signin' element={<SignIn></SignIn>}> </Route>
-          <Route path='/login' element={<Login></Login>}> </Route>
-          <Route path='/orderdemo' element={<OrderDemo></OrderDemo>}> </Route>
-          <Route path='/cart' element={<Cart></Cart>}> </Route>
-          <Route path='/order' element={<Order></Order>}> </Route>
-          <Route path='/register' element={<Register></Register>}> </Route>
+          <Route path='/' element={<Home/>}/> 
+          <Route path='/anime' element={<Anime/>}/> 
+          <Route path='/news' element={<News/>}/> 
+          <Route path='/store' element={<Store/>}/> 
+          <Route path='/signin' element={<SignIn/>}/> 
+          <Route path='/login' element={<Login/>}/> 
+          
+          <Route path='/cart' element={<Cart/>}/> 
+          
+          <Route path='/register' element={<Register/>}/> 
+
+          <Route path='/order' element={<PrivateWrapper><Order/></PrivateWrapper>} />
 
             
             
