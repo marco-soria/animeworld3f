@@ -14,7 +14,7 @@ import { useNavigate } from 'react-router-dom';
 import { Modal } from 'bootstrap';
 import { isAuthenticated } from '../../helpers/auth';
 
-const StoreProducts = () => {
+const StoreProductsPrueba = () => {
   const [productsData, setProductsData] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -24,7 +24,7 @@ const StoreProducts = () => {
 
   useEffect(() => {
     fetchProducts();
-  }, [isAuthenticated()]);
+  }, []);
 
   useEffect(() => {
     modalRef.current = new Modal(document.getElementById('exampleModal'));
@@ -34,22 +34,15 @@ const StoreProducts = () => {
     modalRef.current.hide();
     navigate('/cart');
   };
-
-  
+  const handleSearch = (e) => {
+    const searchTerm = e.target.value.toLowerCase();
+    const filtered = productsData.filter(product => product.name.toLowerCase().includes(searchTerm));
+    setFilteredProducts(filtered);
+  };
 
   const fetchProducts = async () => {
     try {
-      let url = `${API_URL}/products/`;
-      let headers = {};
-      if (isAuthenticated()) {
-        url = `${API_URL}/authenticated_products/`;
-        const token = localStorage.getItem("access_token");
-        headers = {
-          'Authorization': `Bearer ${token}`
-        };
-      }
-      const response = await axios.get(url, { headers });
-      console.log('Fetched products:', response.data);
+      const response = await axios.get(`${API_URL}/products/`);
       setProductsData(response.data);
       setFilteredProducts(response.data);
     } catch (error) {
@@ -143,31 +136,25 @@ const StoreProducts = () => {
       }
   
       const token = localStorage.getItem("access_token");
-      const response = await axios.post(`${API_URL}/products/${productId}/toggle_favorite/`, {}, {
-        headers: {
-          'Authorization': `Bearer ${token}`
+      const response = await axios.post(
+        `http://127.0.0.1:8000/api/products/${productId}/toggle_favorite/`,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         }
-      });
-  
-      if (response.data && response.data.message) {
-        setFilteredProducts(prevProducts => prevProducts.map(prevProduct => {
-          if (prevProduct.id === productId) {
-            return { ...prevProduct, is_favorite: !prevProduct.is_favorite };
-          }
-          return prevProduct;
-        }));
-      } else {
-        console.error('Error toggling favorite:', response);
-      }
+      );
+      const updatedProduct = response.data;
+      setProductsData(productsData.map((product) =>
+        product.id === updatedProduct.id ? updatedProduct : product
+      ));
+      setFilteredProducts(filteredProducts.map((product) =>
+        product.id === updatedProduct.id ? updatedProduct : product
+      ));
     } catch (error) {
-      console.error('Error toggling favorite:', error);
+      console.error("Error toggling favorite:", error);
     }
-  };
-
-  const handleSearch = (e) => {
-    const searchTerm = e.target.value.toLowerCase();
-    const filtered = productsData.filter(product => product.name.toLowerCase().includes(searchTerm));
-    setFilteredProducts(filtered);
   };
 
   const filterProducts = async (category) => {
@@ -266,5 +253,4 @@ const StoreProducts = () => {
   );
 };
 
-export { StoreProducts };
-
+export { StoreProductsPrueba };
