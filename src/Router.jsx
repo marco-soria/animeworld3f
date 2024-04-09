@@ -19,6 +19,7 @@ import { Register } from './pages/auth/Register';
 import { useNavigate } from 'react-router-dom';
 import { isAuthenticated } from './helpers/auth';
 import { PrivateRoute } from './pages/auth/PrivateRoute';
+import { Wishlist } from  './pages/wishlist/Wishlist';
 
 
 const PrivateWrapper = ({ children }) => {
@@ -47,6 +48,7 @@ const Router = () => {
           <Route path='/register' element={<Register/>}/> 
 
           <Route path='/order' element={<PrivateWrapper><Order/></PrivateWrapper>} />
+          <Route path='/wishlist' element={<PrivateWrapper><Wishlist/></PrivateWrapper>} />
 
             
             
