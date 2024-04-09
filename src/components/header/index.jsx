@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import './Header.css';
 import { Link } from 'react-router-dom';
 import { GiHamburgerMenu } from 'react-icons/gi';
@@ -7,9 +7,22 @@ import logo from '../../assets/header/awlogo1.png';
 import { FaHeart } from "react-icons/fa";
 import { FaCartShopping } from "react-icons/fa6";
 import { isAuthenticated } from '../../helpers/auth';
+import { AuthContext } from '../../pages/auth/AuthContext';
 
 const Header = () => {
   const [isActive, setIsActive] = useState(false);
+  const { isUserAuthenticated, setIsUserAuthenticated } = useContext(AuthContext);
+
+  useEffect(() => {
+    setIsUserAuthenticated(isAuthenticated());
+  }, [isUserAuthenticated]);
+
+  const handleLogin = () => {
+    // ...código de inicio de sesión...
+    if (isAuthenticated()) {
+      setIsUserAuthenticated(true);
+    }
+  };
 
   const handleClick = () => {
     setIsActive(!isActive);
@@ -53,7 +66,7 @@ const Header = () => {
             Store
           </Link>
         </li>
-        {isAuthenticated() && ( // Verifica si el usuario está autenticado
+        {isUserAuthenticated && ( // Verifica si el usuario está autenticado
           <li>
             <Link to="/wishlist" className="nav-links" onClick={handleLinkClick}>
               <FaHeart></FaHeart>

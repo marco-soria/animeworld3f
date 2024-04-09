@@ -20,7 +20,7 @@ import { useNavigate } from 'react-router-dom';
 import { isAuthenticated } from './helpers/auth';
 import { PrivateRoute } from './pages/auth/PrivateRoute';
 import { Wishlist } from  './pages/wishlist/Wishlist';
-
+import { AuthProvider } from './pages/auth/AuthContext';
 
 const PrivateWrapper = ({ children }) => {
   const location = useLocation();
@@ -34,7 +34,9 @@ const Router = () => {
 
   return (
     <BrowserRouter>
+      <AuthProvider>
         <Header></Header>
+        </AuthProvider> 
         <Routes>
           <Route path='/' element={<Home/>}/> 
           <Route path='/anime' element={<Anime/>}/> 
@@ -53,7 +55,9 @@ const Router = () => {
             
             
         </Routes>
+        <AuthProvider>
         <Footer></Footer>
+        </AuthProvider>
     </BrowserRouter>
   );
 };

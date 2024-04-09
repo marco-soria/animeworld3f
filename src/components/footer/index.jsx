@@ -1,31 +1,76 @@
-import React from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { FaFacebook, FaInstagram, FaTiktok, FaYoutube } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 import { IconContext } from 'react-icons';
 import { Link } from 'react-router-dom'
 import './Footer.css'; // Importa el archivo de estilos local
+import { FaHeart } from "react-icons/fa";
+import { FaCartShopping } from "react-icons/fa6";
+import { isAuthenticated } from '../../helpers/auth';
+import { AuthContext } from '../../pages/auth/AuthContext';
 
 const Footer = () => {
+  const { isUserAuthenticated, setIsUserAuthenticated } = useContext(AuthContext);
+
+  useEffect(() => {
+    setIsUserAuthenticated(isAuthenticated());
+  }, [isUserAuthenticated]);
+
+  const handleLogin = () => {
+    // ...código de inicio de sesión...
+    if (isAuthenticated()) {
+      setIsUserAuthenticated(true);
+    }
+  };
+
   return (
     <footer>
       <div className="footerContainer">
         <div className="mediaIcons">
           <IconContext.Provider value={{ classname: "footericons" }}>
-          <a href="/"><FaFacebook className='fa-icon'/></a>
-          <a href="/"><FaInstagram className='fa-icon' /></a>
-          <a href="/"><FaXTwitter  className='fa-icon'/></a>
-          <a href="/"><FaTiktok className='fa-icon' /></a>
-          <a href="/"><FaYoutube className='fa-icon'/></a>
+          <Link to="/"><FaFacebook className='fa-icon'/></Link>
+          <Link to="/"><FaInstagram className='fa-icon' /></Link>
+          <Link to="/"><FaXTwitter  className='fa-icon'/></Link>
+          <Link to="/"><FaTiktok className='fa-icon' /></Link>
+          <Link to="/"><FaYoutube className='fa-icon'/></Link>
           </IconContext.Provider>
         </div>
         <div className="footerNav">
-          <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/anime">Anime</a></li>
-            <li><a href="/news">News</a></li>
-            <li><a href="/store">Store</a></li>
-            
-          </ul>
+        <ul className= "footer-nav">
+        <li>
+          <Link to="/" className="nav-links" >
+            Home
+          </Link>
+        </li>
+        <li>
+          <Link to="/anime" className="nav-links" >
+            Anime
+          </Link>
+        </li>
+        <li>
+          <Link to="/news" className="nav-links" >
+            News
+          </Link>
+        </li>
+        <li>
+          <Link to="/store" className="nav-links" >
+            Store
+          </Link>
+        </li>
+        {isUserAuthenticated && ( // Verifica si el usuario está autenticado
+          <li>
+            <Link to="/wishlist" className="nav-links" >
+              <FaHeart></FaHeart>
+            </Link>
+          </li>
+        )}
+        <li>
+          <Link to="/cart" className="nav-links" >
+            <FaCartShopping></FaCartShopping>
+          </Link>
+        </li>
+        
+      </ul>
         </div>
         <div className="footerCopyright">
           <p>Copyright &copy;2024; Designed by <span className="designer">Marco Antonio</span></p>

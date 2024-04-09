@@ -29,6 +29,12 @@ footer {
     transition: 0.5s;
 } */
 
+.footer-nav{
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    padding-left: 0;
+}
 
 
 .mediaIcons a {
@@ -75,7 +81,7 @@ footer {
 }
 
 .footerNav ul li a{
-    margin: 20px;
+    margin: 15px;
     text-decoration: none;
     font-size: 1.3em;
     opacity: 0.7s;
@@ -108,12 +114,13 @@ footer {
 
 
 @media (max-width: 992px){
-    .footerNav ul{
+    .footer-nav{
         display: flex;
         flex-direction: column;
+        align-items: center;
         padding-left: 0;
     }
-    .footerNav ul li{
+    .footer-nav li{
         width: 100%;
         text-align:center;
         margin: 10px;
