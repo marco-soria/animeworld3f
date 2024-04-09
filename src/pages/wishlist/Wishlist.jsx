@@ -99,7 +99,7 @@ export const Wishlist = () => {
   return (
     <div className="container" style={{ marginTop: '80px' }}>
       <div className="row">
-        <div className="col">My Wishlist</div>
+        <div className="col fs-3">My Wishlist</div>
         
       </div>
         <div className="row">
