@@ -9,8 +9,9 @@ export const postNewOrder = async (clientId) => {
         subtotal: product.total
     }));
     const total = cart.reduce((acc, product) => acc + product.total, 0);
+    const timestamp = Date.now();
     const order = {
-        code: "P" + clientId,
+        code: `ORD${clientId}${timestamp}`,
         client: clientId,
         total_price: total,
         discount: 0,

@@ -8,7 +8,9 @@ import "./Order.css";
 import {Cart} from '../cart/Cart'
 
 export const Order = () => {
-  const [newOrder,setNewOrder] = useState({})
+  const [orderCode, setOrderCode] = useState(null);
+  const [newOrder, setNewOrder] = useState(null);
+  
   const [clientId,setClientId] = useState(0)
   const [firstName,setFirstName] = useState('')
   const [lastName,setLastName] = useState('')
@@ -49,8 +51,6 @@ export const Order = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
   
-    console.log("Submitting order:", { clientId });
-  
     postNewOrder(clientId).then((data) => {
       if (!data) {
         console.error("Error registering the order.");
@@ -58,7 +58,8 @@ export const Order = () => {
         return;
       }
       console.log("Order registered:", data);
-      setNewOrder(data);
+      setNewOrder(data); // Guarda la respuesta en el estado
+      setOrderCode(data.code); // Guarda el código de la orden en el estado
       alert("Order registered!!!");
     }).catch((error) => {
       console.error("Error registering the order:", error);
@@ -92,7 +93,7 @@ export const Order = () => {
     }
     console.log("Order registered:", data);
     setNewOrder(data);
-    alert("Order registered!!!");
+    // alert("Order registered!!!");
   };
   
 
@@ -202,52 +203,43 @@ export const Order = () => {
           
         <p>Total: USD {total}</p>
         </div>
-        <br/>
-        {Object.keys(newOrder).length !== 0 && (
-          <span>Order: {newOrder.code}</span>
-        )}
         
-        <br />
 
         <div>
           <h2>Pay Checkout</h2>
           <div className="">
           <PayPalScriptProvider options={initialOptions}>
-            <PayPalButtons
-              style = {{
-                disableMaxWidth: true
-              }}
-              createOrder={(data, actions) => {
-                return actions.order.create({
-                  purchase_units: [
-                    {
-                      amount: {
-                        value: total,
-                      },
-                      invoice_number: newOrder.code // Pasar el número de factura
+          <PayPalButtons
+            style = {{
+              disableMaxWidth: true
+            }}
+            createOrder={(data, actions) => {
+              return actions.order.create({
+                purchase_units: [
+                  {
+                    amount: {
+                      value: total,
                     },
-                  ],
-                });
-              }}
-              onApprove={async (data, actions) => {
-                await actions.order.capture().then(async function(details) {
-                  console.log("Order Result : ",details)
-                  const invoiceNumber = details.purchase_units[0].invoice_number; // Obtener el número de factura
-                  alert('The Order was payed ' + invoiceNumber);
-                  // Manejar el número de factura según sea necesario
+                    invoice_number: newOrder ? newOrder.code : undefined, // Usa newOrder.code como el número de factura
+                  },
+                ],
+              });
+            }}
+            onApprove={async (data, actions) => {
+              await actions.order.capture().then(async function (details) {
+                console.log('Order details:', details);
+                alert(`The Order ${details.id} was registered and payed. You will be redirected to the store.`);
 
-                  // Crear la orden
-                  await handleOrderCreation();
+                setCart([]);
+                localStorage.setItem("cart", JSON.stringify([]));
 
-                  // Vaciar el carrito
-                  setCart([]);
-                  localStorage.setItem("cart", JSON.stringify([]));
-
-                  // Redirigir al usuario a la ruta /store
+                // Agrega un retraso de 3 segundos antes de la redirección
+                setTimeout(() => {
                   window.location.href = "/store";
-                });
-              }}
-            />
+                }, 1000);
+              });
+            }}
+          />
           </PayPalScriptProvider>
         </div>
         </div>

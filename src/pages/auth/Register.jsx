@@ -28,14 +28,15 @@ export const Register = () => {
     postClientFullService(client)
       .then((data) => {
         if (!data) {
-          alert("Hubo un error");
+          alert("There was an error");
           return;
         }
+        alert("Client registered successfully")
         navigate("/login");
       })
       .catch((error) => {
-        console.error("Error al registrar el cliente:", error);
-        alert("Hubo un error al registrar el cliente");
+        console.error("Error registering the client:", error);
+        alert("There was an error registering the client. Please try again.");
       });
   };
 
