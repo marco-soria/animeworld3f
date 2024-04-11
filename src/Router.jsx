@@ -36,7 +36,7 @@ const Router = () => {
     <BrowserRouter>
       <AuthProvider>
         <Header></Header>
-        </AuthProvider> 
+        
         <Routes>
           <Route path='/' element={<Home/>}/> 
           <Route path='/anime' element={<Anime/>}/> 
@@ -55,9 +55,9 @@ const Router = () => {
             
             
         </Routes>
-        <AuthProvider>
+        
         <Footer></Footer>
-        </AuthProvider>
+         </AuthProvider> 
     </BrowserRouter>
   );
 };

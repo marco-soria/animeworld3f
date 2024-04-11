@@ -11,18 +11,14 @@ import { AuthContext } from '../../pages/auth/AuthContext';
 
 const Header = () => {
   const [isActive, setIsActive] = useState(false);
-  const { isUserAuthenticated, setIsUserAuthenticated } = useContext(AuthContext);
+  const { isUserAuthenticated } = useContext(AuthContext);
+  
 
-  useEffect(() => {
-    setIsUserAuthenticated(isAuthenticated());
-  }, [isUserAuthenticated]);
+  
 
-  const handleLogin = () => {
-    // ...código de inicio de sesión...
-    if (isAuthenticated()) {
-      setIsUserAuthenticated(true);
-    }
-  };
+  
+
+  
 
   const handleClick = () => {
     setIsActive(!isActive);

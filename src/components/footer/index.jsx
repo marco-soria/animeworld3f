@@ -10,18 +10,13 @@ import { isAuthenticated } from '../../helpers/auth';
 import { AuthContext } from '../../pages/auth/AuthContext';
 
 const Footer = () => {
-  const { isUserAuthenticated, setIsUserAuthenticated } = useContext(AuthContext);
+  const { isUserAuthenticated } = useContext(AuthContext);
+  
 
-  useEffect(() => {
-    setIsUserAuthenticated(isAuthenticated());
-  }, [isUserAuthenticated]);
+  
 
-  const handleLogin = () => {
-    // ...código de inicio de sesión...
-    if (isAuthenticated()) {
-      setIsUserAuthenticated(true);
-    }
-  };
+  
+  
 
   return (
     <footer>
@@ -57,7 +52,7 @@ const Footer = () => {
             Store
           </Link>
         </li>
-        {isUserAuthenticated && ( // Verifica si el usuario está autenticado
+        {isUserAuthenticated && (
           <li>
             <Link to="/wishlist" className="nav-links" >
               <FaHeart></FaHeart>
