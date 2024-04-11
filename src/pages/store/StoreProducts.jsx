@@ -18,6 +18,8 @@ const StoreProducts = () => {
   const [productsData, setProductsData] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   const navigate= useNavigate();
   const modalRef = useRef();
@@ -38,6 +40,8 @@ const StoreProducts = () => {
   
 
   const fetchProducts = async () => {
+    setIsLoading(true);
+    setError(null);
     try {
       let url = `${API_URL}/products/`;
       let headers = {};
@@ -54,10 +58,21 @@ const StoreProducts = () => {
       setFilteredProducts(response.data);
     } catch (error) {
       console.error('Error fetching products:', error);
+      setError(error.message);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   const renderProducts = () => {
+    if (isLoading) {
+      return <p className="loading-message">Loading from server...</p>;
+    }
+
+    if (error) {
+      return <p className="error-message">An error occurred: {error}</p>;
+    }
+
     if (filteredProducts.length === 0) {
       return <p className="not-found-message">Product not found</p>;
     }
