@@ -1,0 +1,163 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import "./Cart.css";
+
+interface CartProduct {
+  id: number;
+  name: string;
+  price: string;
+  quantity: number;
+  total: string;
+  image: string;
+}
+
+export const Cart = () => {
+  const [cart, setCart] = useState<CartProduct[]>(
+    JSON.parse(localStorage.getItem("cart") || "[]")
+  );
+
+  const handleDeleteProduct = (id: number) => {
+    const newCart = cart.filter((product) => product.id !== id);
+    setCart(newCart);
+    localStorage.setItem("cart", JSON.stringify(newCart));
+  };
+
+  const handleDecreaseQuantity = (id: number) => {
+    const updatedCart = cart.map((product) => {
+      if (product.id === id && product.quantity > 1) {
+        return {
+          ...product,
+          quantity: product.quantity - 1,
+          total: ((product.quantity - 1) * parseFloat(product.price)).toFixed(
+            2
+          ),
+        };
+      }
+      return product;
+    });
+    setCart(updatedCart);
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+  };
+
+  const handleIncreaseQuantity = (id: number) => {
+    const updatedCart = cart.map((product) => {
+      if (product.id === id) {
+        return {
+          ...product,
+          quantity: product.quantity + 1,
+          total: ((product.quantity + 1) * parseFloat(product.price)).toFixed(
+            2
+          ),
+        };
+      }
+      return product;
+    });
+    setCart(updatedCart);
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+  };
+
+  const total = cart.reduce(
+    (acc, product) => acc + parseFloat(product.total),
+    0
+  );
+
+  return (
+    <div className="container" style={{ marginTop: "80px" }}>
+      <div className="row">
+        <div className="col-md-9 fs-3">Cart</div>
+        <div className="col-md-3 fs-3">Summary</div>
+      </div>
+      <div className="row">
+        <div className="col-md-9">
+          <table className="table table-bordered text-center align-middle">
+            <thead>
+              <tr className="tr-cartheader">
+                <th scope="col">#</th>
+                <th scope="col">Image</th>
+                <th scope="col">Product</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Price</th>
+                <th scope="col">Total</th>
+                <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {cart.length > 0 ? (
+                cart.map((product, index) => (
+                  <tr className="tr-cartcontent" key={product.id}>
+                    <td>{index + 1}</td>
+                    <td>
+                      <img
+                        src={product.image}
+                        style={{ height: "150px", width: "100px" }}
+                        alt={product.name}
+                      />
+                    </td>
+                    <td>{product.name}</td>
+                    <td>{product.quantity}</td>
+                    <td>{product.price}</td>
+                    <td>{product.total}</td>
+                    <td>
+                      <button
+                        type="button"
+                        onClick={() => handleDecreaseQuantity(product.id)}
+                        className="btn btn-primary btn-sm m-1"
+                        disabled={product.quantity <= 1}
+                      >
+                        -
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => handleIncreaseQuantity(product.id)}
+                        className="btn btn-primary btn-sm m-1"
+                      >
+                        +
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => handleDeleteProduct(product.id)}
+                        className="btn btn-danger btn-sm m-1"
+                      >
+                        X
+                      </button>
+                    </td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td
+                    colSpan={7}
+                    style={{ backgroundColor: "#030637", color: "#9e02f9" }}
+                  >
+                    Empty Cart:{" "}
+                    <Link
+                      to="/store"
+                      className="btn btn-secondary generateOrder mx-3"
+                    >
+                      Go to Store
+                    </Link>
+                  </td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
+        <div className="col-md-3">
+          <div className="card summary p-4 d-flex justify-content-center align-items-center">
+            <p className="fs-4"> Total: USD {total.toFixed(2)}</p>
+            <Link
+              to="/order"
+              className={`btn btn-secondary generateOrder ${cart.length === 0 ? "disabled" : ""}`}
+            >
+              Generate Order
+            </Link>
+            <Link to="/store" className="mt-2 linkstorecart">
+              {" "}
+              Continue Buying
+            </Link>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};

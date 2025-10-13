@@ -1,54 +1,54 @@
 /*card*/
 .formbg {
-    background-color: #030637;
-    border: solid 4px #9500ff;
-  }
-  
-  /*button*/
-  .storebutton {
-    background-color: #C21292 !important;
-    color:white !important;
-    border: #C21292 !important;
-  }
-  
-  .storebutton:hover{
-    background-color: #910A67 !important;
-    color:white !important;
-    border: #910A67 !important;
-  }
+  background-color: #030637;
+  border: solid 4px #9500ff;
+}
 
-  .gotocartbutton {
-    background-color: #C21292 !important;
-    color:white !important;
-    border: #C21292 !important;
-  }
-  
-  .gotocartbutton:hover{
-    background-color: #910A67 !important;
-    color:white !important;
-    border: #910A67 !important;
-  }
+/*button*/
+.storebutton {
+  background-color: #c21292 !important;
+  color: white !important;
+  border: #c21292 !important;
+}
 
-  /*categories*/
+.storebutton:hover {
+  background-color: #910a67 !important;
+  color: white !important;
+  border: #910a67 !important;
+}
+
+.gotocartbutton {
+  background-color: #c21292 !important;
+  color: white !important;
+  border: #c21292 !important;
+}
+
+.gotocartbutton:hover {
+  background-color: #910a67 !important;
+  color: white !important;
+  border: #910a67 !important;
+}
+
+/*categories*/
 
 #js-categories-list {
-    background-color: #030637;
-     /* Ajusta el relleno según tu preferencia */
-    border-radius: 5px; /* Ajusta el radio de borde según tu preferencia */
-  }
-  
-  #js-categories-list li {
-    background-color: #030637;
-    border: solid 2px #9500ff;
-    border-radius: 5px;
-    color: #9500ff; 
-    transition: background-color 0.3; /
-  }
-  
-  #js-categories-list li:hover {
-    background-color: #7a00d1;
-    color: white; /* Cambia el color cuando se pasa el ratón */
-  }
+  background-color: #030637;
+  /* Ajusta el relleno según tu preferencia */
+  border-radius: 5px; /* Ajusta el radio de borde según tu preferencia */
+}
+
+#js-categories-list li {
+  background-color: #030637;
+  border: solid 2px #9500ff;
+  border-radius: 5px;
+  color: #9500ff;
+  transition: background-color 0.3s;
+}
+
+#js-categories-list li:hover {
+  background-color: #7a00d1;
+  color: white; /* Cambia el color cuando se pasa el ratón */
+}
 
 /*   .modal-container {
     position: fixed;
@@ -83,19 +83,17 @@
   }
    */
 
-   .modal-content {
-    background-color: #030637;
-    border-color: #7a00d1;
-    color: white;
-  }
+.modal-content {
+  background-color: #030637;
+  border-color: #7a00d1;
+  color: white;
+}
 
-  .modal-header {
-    
-    border-color: #7a00d1;
-    
-  }
+.modal-header {
+  border-color: #7a00d1;
+}
 
-  .btn-close {
-    background-color: #C21292;
-    color: white;
-  }
+.btn-close {
+  background-color: #c21292;
+  color: white;
+}
