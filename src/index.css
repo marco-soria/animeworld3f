@@ -10,9 +10,18 @@
 
 body {
   background-color: #030637;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 #root {
   min-height: 100vh;
   background-color: #030637;
+  width: 100%;
+}
+
+main {
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }

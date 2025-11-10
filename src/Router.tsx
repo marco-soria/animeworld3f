@@ -47,12 +47,28 @@ const PrivateWrapper = ({ children }: PrivateWrapperProps) => {
   );
 };
 
+const LoadingFallback = () => (
+  <div
+    style={{
+      minHeight: "100vh",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      backgroundColor: "#030637",
+    }}
+  >
+    <div className="spinner-border text-light" role="status">
+      <span className="visually-hidden">Loading...</span>
+    </div>
+  </div>
+);
+
 const RootLayout = () => {
   return (
     <AuthProvider>
       <Header />
-      <main>
-        <Suspense fallback={<div>Loading...</div>}>
+      <main style={{ width: "100%", margin: 0, padding: 0 }}>
+        <Suspense fallback={<LoadingFallback />}>
           <Outlet />
         </Suspense>
       </main>
