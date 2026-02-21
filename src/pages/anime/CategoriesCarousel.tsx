@@ -142,7 +142,7 @@ const CategoriesCarousel = () => {
                         <div className="card border-0">
                           <div className="card-img">
                             <img
-                              src="https://i0.wp.com/www.hanamidango.com/wp-content/uploads/2021/02/Heavens_Feel_1-Hanami-Dango-2.jpg"
+                              src="https://images4.alphacoders.com/812/thumb-1920-812334.jpg"
                               className="d-block w-100"
                               style={{
                                 maxHeight: "40vh",
@@ -354,7 +354,7 @@ const CategoriesCarousel = () => {
                         <div className="card border-0">
                           <div className="card-img">
                             <img
-                              src="https://somoskudasai.com/wp-content/uploads/2022/06/portada_bleach-15.jpg"
+                              src="https://cdn.mos.cms.futurecdn.net/DCFsvBZ4hPY6S7sb6ULb5H.jpg"
                               className="d-block w-100"
                               style={{
                                 maxHeight: "40vh",
@@ -414,7 +414,7 @@ const CategoriesCarousel = () => {
                         <div className="card border-0">
                           <div className="card-img">
                             <img
-                              src="https://www.mundodeportivo.com/alfabeta/hero/2023/08/mushoku_tensei.1692398147.4085.jpg?width=1200"
+                              src="https://www.gematsu.com/wp-content/uploads/2023/01/Game-Page-Featured_Mushoku-Tensei-Jobless-Reincarnation-Quest-of-Memories.jpg"
                               className="d-block w-100"
                               style={{
                                 maxHeight: "40vh",
@@ -566,7 +566,7 @@ const CategoriesCarousel = () => {
                         <div className="card border-0">
                           <div className="card-img">
                             <img
-                              src="https://i0.wp.com/cuatrobastardos.com/wp-content/uploads/2023/03/i314aLh8nWdoov0Tk7nEg5zTIhS.jpg?fit=3840%2C2160&ssl=1"
+                              src="https://fwmedia.fandomwire.com/wp-content/uploads/2024/09/05131048/mob-psycho-100-III-mob-and-dimple-1024x576.webp"
                               className="d-block w-100"
                               style={{
                                 maxHeight: "40vh",
@@ -758,7 +758,7 @@ const CategoriesCarousel = () => {
                         <div className="card border-0">
                           <div className="card-img">
                             <img
-                              src="https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2023/06/chainsaw-man-3064222.jpg?tf=3840x"
+                              src="https://xiahpop.com/wp-content/uploads/2025/09/Chainsaw-Man-La-Pelicula-Arco-de-Reze.jpg"
                               className="card d-block w-100"
                               style={{
                                 maxHeight: "40vh",
@@ -778,7 +778,7 @@ const CategoriesCarousel = () => {
                         <div className="card border-0">
                           <div className="card-img">
                             <img
-                              src="https://www.anmosugoi.com/wp-content/uploads/2023/05/Kage-no-Jitsuryokusha-ni-Naritakute-1.jpg"
+                              src="https://cdn.beahero.gg/2022/09/Anime-Kage-no-Jitsuryokusha-ni-Naritakute-ya-tiene-fecha-de-lanzamiento-y-nuevo-trailer-promocional.jpg"
                               className="d-block w-100"
                               style={{
                                 maxHeight: "40vh",
@@ -798,7 +798,7 @@ const CategoriesCarousel = () => {
                         <div className="card border-0">
                           <div className="card-img">
                             <img
-                              src="https://www.anmosugoi.com/wp-content/uploads/2021/12/link-click-banner.jpg"
+                              src="https://static.promediateknologi.id/crop/0x0:0x0/0x0/webp/photo/p2/243/2024/08/30/LinkClick_LuGuang_ChengXiaoShi_SeasonOne_OfficialWallpaper-1710955153.jpg"
                               className="d-block w-100"
                               style={{
                                 maxHeight: "40vh",
@@ -818,7 +818,7 @@ const CategoriesCarousel = () => {
                         <div className="card border-0">
                           <div className="card-img">
                             <img
-                              src="https://i0.wp.com/listadeanime.com/wp-content/uploads/2020/11/konosuba-mobile-game-op.jpg"
+                              src="https://tierragamer.com/wp-content/uploads/2024/06/konosuba-capitulo-once.webp"
                               className="d-block w-100"
                               style={{
                                 maxHeight: "40vh",
@@ -838,7 +838,7 @@ const CategoriesCarousel = () => {
                         <div className="card border-0">
                           <div className="card-img">
                             <img
-                              src="https://ramenparados.com/wp-content/uploads/2009/06/kurociel.jpg"
+                              src="https://easycdn.es/1/series/capi/capitulo_100670.jpg"
                               className="d-block w-100"
                               style={{
                                 maxHeight: "40vh",
