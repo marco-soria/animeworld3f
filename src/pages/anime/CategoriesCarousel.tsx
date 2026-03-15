@@ -61,7 +61,7 @@ const CategoriesCarousel = () => {
                         <div className="card border-0">
                           <div className="card-img">
                             <img
-                              src="https://a.storyblok.com/f/178900/1504x846/cce89fee50/yuji-megumi-and-nobara.png"
+                              src="https://res.cloudinary.com/dqxiijdlw/image/upload/v1773613064/01jujutsukaisen_w2nh5f.png"
                               className="card d-block w-100"
                               style={{
                                 maxHeight: "40vh",
@@ -81,7 +81,7 @@ const CategoriesCarousel = () => {
                         <div className="card border-0">
                           <div className="card-img">
                             <img
-                              src="https://1.bp.blogspot.com/-2uagO5O7YBY/YGqBWj-tKdI/AAAAAAAAquA/hYT7BQkmVKQQDJxDE0zal_Txr7BJ-t8IQCLcBGAsYHQ/w1280-h720-p-k-no-nu/Episodios-Code-Geass-Lelouch-of-the-Rebellion-Relleno-Orden-Cronologico.jpg"
+                              src="https://res.cloudinary.com/dqxiijdlw/image/upload/v1773613063/02codegeass_obzgxs.jpg"
                               className="card d-block w-100"
                               style={{
                                 maxHeight: "40vh",
@@ -101,7 +101,7 @@ const CategoriesCarousel = () => {
                         <div className="card border-0">
                           <div className="card-img">
                             <img
-                              src="https://parallax.com.pe/wp-content/uploads/2021/11/kimetsu-01.jpg"
+                              src="https://res.cloudinary.com/dqxiijdlw/image/upload/v1773613063/03kimetsunoyaiba_e9c8ti.jpg"
                               className="card d-block w-100"
                               style={{
                                 maxHeight: "40vh",
@@ -121,7 +121,7 @@ const CategoriesCarousel = () => {
                         <div className="card border-0">
                           <div className="card-img">
                             <img
-                              src="https://hanamidangos.blog/wp-content/uploads/2021/10/86-Eighty-Six-Primera-Imrpesion-Hanami-Dango-6-696x392.jpg
+                              src="https://res.cloudinary.com/dqxiijdlw/image/upload/v1773613064/04eightysix_ilhoi8.webp
                               "
                               className="card d-block w-100"
                               style={{
@@ -142,7 +142,7 @@ const CategoriesCarousel = () => {
                         <div className="card border-0">
                           <div className="card-img">
                             <img
-                              src="https://images4.alphacoders.com/812/thumb-1920-812334.jpg"
+                              src="https://res.cloudinary.com/dqxiijdlw/image/upload/v1773613063/05fatestaynight_b48wle.jpg"
                               className="d-block w-100"
                               style={{
                                 maxHeight: "40vh",
@@ -162,7 +162,7 @@ const CategoriesCarousel = () => {
                         <div className="card border-0">
                           <div className="card-img">
                             <img
-                              src="https://a.storyblok.com/f/178900/940x529/b857ae7076/cyberpunk-edgerunners-resize.jpg"
+                              src="https://res.cloudinary.com/dqxiijdlw/image/upload/v1773613063/06cyberpunkedgerunners_nohycy.jpg"
                               className="d-block w-100"
                               style={{
                                 maxHeight: "40vh",
@@ -182,7 +182,7 @@ const CategoriesCarousel = () => {
                         <div className="card border-0">
                           <div className="card-img">
                             <img
-                              src="https://sm.ign.com/t/ign_latam/screenshot/default/hades11_6hm3.1200.jpg"
+                              src="https://res.cloudinary.com/dqxiijdlw/image/upload/v1773613063/07saintseiya_ntowk0.webp"
                               className="d-block w-100"
                               style={{
                                 maxHeight: "40vh",
@@ -202,7 +202,7 @@ const CategoriesCarousel = () => {
                         <div className="card border-0">
                           <div className="card-img">
                             <img
-                              src="https://hips.hearstapps.com/hmg-prod/images/shingeki-no-kyojin-1673958348.jpg"
+                              src="https://res.cloudinary.com/dqxiijdlw/image/upload/v1773613064/08shingekinokyojin_vgg214.avif"
                               className="d-block w-100"
                               style={{
                                 maxHeight: "40vh",
@@ -274,7 +274,7 @@ const CategoriesCarousel = () => {
                         <div className="card border-0">
                           <div className="card-img">
                             <img
-                              src="https://www.animeexplained.com/wp-content/uploads/2023/11/Killua-and-Alluka.webp"
+                              src="https://res.cloudinary.com/dqxiijdlw/image/upload/v1773613064/09hunterxhunter_tzyxw7.webp"
                               className="card d-block w-100"
                               style={{
                                 maxHeight: "40vh",
@@ -294,7 +294,7 @@ const CategoriesCarousel = () => {
                         <div className="card border-0">
                           <div className="card-img">
                             <img
-                              src="https://static.animecorner.me/2023/08/1692784819-10357.jpg"
+                              src="https://res.cloudinary.com/dqxiijdlw/image/upload/v1773613064/10sousounofrieren_xvabk2.jpg"
                               className="card d-block w-100"
                               style={{
                                 maxHeight: "40vh",
@@ -314,7 +314,7 @@ const CategoriesCarousel = () => {
                         <div className="card border-0">
                           <div className="card-img">
                             <img
-                              src="https://static.catapult.co/cdn-cgi/image/width=1170,height=658,dpr=2,fit=cover,format=auto/production/stories/30190/cover_photos/original/fullmetal_site_1622753380_1637683000.jpg"
+                              src="https://res.cloudinary.com/dqxiijdlw/image/upload/v1773613064/11fma_rye3ku.webp"
                               className="card d-block w-100"
                               style={{
                                 maxHeight: "40vh",
@@ -334,7 +334,7 @@ const CategoriesCarousel = () => {
                         <div className="card border-0">
                           <div className="card-img">
                             <img
-                              src="https://comicbook.com/wp-content/uploads/sites/4/2025/01/One-Piece-Anime-Episodes-Hiatus-Watch.jpg"
+                              src="https://res.cloudinary.com/dqxiijdlw/image/upload/v1773613064/12onepiece_eppjhw.webp"
                               className="card d-block w-100"
                               style={{
                                 maxHeight: "40vh",
@@ -354,7 +354,7 @@ const CategoriesCarousel = () => {
                         <div className="card border-0">
                           <div className="card-img">
                             <img
-                              src="https://cdn.mos.cms.futurecdn.net/DCFsvBZ4hPY6S7sb6ULb5H.jpg"
+                              src="https://res.cloudinary.com/dqxiijdlw/image/upload/v1773613065/13bleach_voj2ww.jpg"
                               className="d-block w-100"
                               style={{
                                 maxHeight: "40vh",
@@ -374,7 +374,7 @@ const CategoriesCarousel = () => {
                         <div className="card border-0">
                           <div className="card-img">
                             <img
-                              src="https://d17389e216ygm.cloudfront.net/wp-content/uploads/CE_TGCF-2.jpg"
+                              src="https://res.cloudinary.com/dqxiijdlw/image/upload/v1773613065/14tianguancifu_ncgr3t.jpg"
                               className="d-block w-100"
                               style={{
                                 maxHeight: "40vh",
@@ -394,7 +394,7 @@ const CategoriesCarousel = () => {
                         <div className="card border-0">
                           <div className="card-img">
                             <img
-                              src="https://theflame.unishanoi.org/wp-content/uploads/2015/10/your-mom.jpg"
+                              src="https://res.cloudinary.com/dqxiijdlw/image/upload/v1773613065/15mushishi_mplz99.jpg"
                               className="d-block w-100"
                               style={{
                                 maxHeight: "40vh",
@@ -414,7 +414,7 @@ const CategoriesCarousel = () => {
                         <div className="card border-0">
                           <div className="card-img">
                             <img
-                              src="https://www.gematsu.com/wp-content/uploads/2023/01/Game-Page-Featured_Mushoku-Tensei-Jobless-Reincarnation-Quest-of-Memories.jpg"
+                              src="https://res.cloudinary.com/dqxiijdlw/image/upload/v1773613065/16mushokutensei_e2chh3.jpg"
                               className="d-block w-100"
                               style={{
                                 maxHeight: "40vh",
@@ -486,7 +486,7 @@ const CategoriesCarousel = () => {
                         <div className="card border-0">
                           <div className="card-img">
                             <img
-                              src="https://4kwallpapers.com/images/wallpapers/gintama-ultrawide-2560x1440-16169.jpg"
+                              src="https://res.cloudinary.com/dqxiijdlw/image/upload/v1773613065/17gintama_lnkvwe.jpg"
                               className="card d-block w-100"
                               style={{
                                 maxHeight: "40vh",
@@ -506,7 +506,7 @@ const CategoriesCarousel = () => {
                         <div className="card border-0">
                           <div className="card-img">
                             <img
-                              src="https://a.storyblok.com/f/178900/1504x846/c063cda032/e6905a3d580453269c5ba031c84781a71666797206_main.jpg/m/filters:quality(95)format(webp)"
+                              src="https://res.cloudinary.com/dqxiijdlw/image/upload/v1773613065/18kaguyasama_q1lokh.webp"
                               className="card d-block w-100"
                               style={{
                                 maxHeight: "40vh",
@@ -526,7 +526,7 @@ const CategoriesCarousel = () => {
                         <div className="card border-0">
                           <div className="card-img">
                             <img
-                              src="https://i0.wp.com/news.qoo-app.com/en/wp-content/uploads/sites/3/2017/12/17122705480862-e1514353799580.jpg"
+                              src="https://res.cloudinary.com/dqxiijdlw/image/upload/v1773613065/19owarimonogatari_ulurp7.webp"
                               className="card d-block w-100"
                               style={{
                                 maxHeight: "40vh",
@@ -546,7 +546,7 @@ const CategoriesCarousel = () => {
                         <div className="card border-0">
                           <div className="card-img">
                             <img
-                              src="https://www.chirchi.com/wp-content/uploads/2023/10/Bocchi-The-Rock-25.jpeg"
+                              src="https://res.cloudinary.com/dqxiijdlw/image/upload/v1773613065/20bocchitherock_kswyuk.webp"
                               className="card d-block w-100"
                               style={{
                                 maxHeight: "40vh",
@@ -566,7 +566,7 @@ const CategoriesCarousel = () => {
                         <div className="card border-0">
                           <div className="card-img">
                             <img
-                              src="https://fwmedia.fandomwire.com/wp-content/uploads/2024/09/05131048/mob-psycho-100-III-mob-and-dimple-1024x576.webp"
+                              src="https://res.cloudinary.com/dqxiijdlw/image/upload/v1773613065/21mobpsycho_hc2yef.webp"
                               className="d-block w-100"
                               style={{
                                 maxHeight: "40vh",
@@ -586,7 +586,7 @@ const CategoriesCarousel = () => {
                         <div className="card border-0">
                           <div className="card-img">
                             <img
-                              src="https://images.alphacoders.com/823/823774.jpg"
+                              src="https://res.cloudinary.com/dqxiijdlw/image/upload/v1773613066/22gto_uicoic.jpg"
                               className="d-block w-100"
                               style={{
                                 maxHeight: "40vh",
@@ -606,7 +606,7 @@ const CategoriesCarousel = () => {
                         <div className="card border-0">
                           <div className="card-img">
                             <img
-                              src="https://i0.wp.com/codigoespagueti.com/wp-content/uploads/2022/06/Con-estas-ilustraciones-Spy-x-Family-se-despide-de-la-parte-1-de-su-primera-temporada.jpg"
+                              src="https://res.cloudinary.com/dqxiijdlw/image/upload/v1773613068/23spyforfamily_uvd3na.webp"
                               className="d-block w-100"
                               style={{
                                 maxHeight: "40vh",
@@ -626,7 +626,7 @@ const CategoriesCarousel = () => {
                         <div className="card border-0">
                           <div className="card-img">
                             <img
-                              src="https://i.pinimg.com/originals/15/9d/2c/159d2cb34d021a197c3fc6b5a9b13350.jpg"
+                              src="https://res.cloudinary.com/dqxiijdlw/image/upload/v1773613068/24tatamigalaxy_n8lpwk.jpg"
                               className="d-block w-100"
                               style={{
                                 maxHeight: "40vh",
@@ -698,7 +698,7 @@ const CategoriesCarousel = () => {
                         <div className="card border-0">
                           <div className="card-img">
                             <img
-                              src="https://occ-0-8407-92.1.nflxso.net/dnm/api/v6/6AYY37jfdO6hpXcMjf9Yu5cnmO0/AAAABd-jjR7deXv28-09H8CsNo0iOpcEofVSGwkLYie_TMgjZ1sq8zhSwPKy80VdOMaV1qawpoxbmbtQuDfvIb1l54BO57fnG6PKuug6.jpg?r=c90"
+                              src="https://res.cloudinary.com/dqxiijdlw/image/upload/v1773613068/25violetevergarden_w5lre6.jpg"
                               className="card d-block w-100"
                               style={{
                                 maxHeight: "40vh",
@@ -718,7 +718,7 @@ const CategoriesCarousel = () => {
                         <div className="card border-0">
                           <div className="card-img">
                             <img
-                              src="https://theregoesmykokoro.com/wp-content/uploads/2018/01/screenshot-1590.png"
+                              src="https://res.cloudinary.com/dqxiijdlw/image/upload/v1773613068/26madeinabyss_dqyvti.png"
                               className="card d-block w-100"
                               style={{
                                 maxHeight: "40vh",
@@ -738,7 +738,7 @@ const CategoriesCarousel = () => {
                         <div className="card border-0">
                           <div className="card-img">
                             <img
-                              src="https://i.blogs.es/1abfa9/berserk-la-edad-dorada/1366_2000.jpg"
+                              src="https://res.cloudinary.com/dqxiijdlw/image/upload/v1773613068/27berserk_cxwopw.jpg"
                               className="card d-block w-100"
                               style={{
                                 maxHeight: "40vh",
@@ -758,7 +758,7 @@ const CategoriesCarousel = () => {
                         <div className="card border-0">
                           <div className="card-img">
                             <img
-                              src="https://xiahpop.com/wp-content/uploads/2025/09/Chainsaw-Man-La-Pelicula-Arco-de-Reze.jpg"
+                              src="https://res.cloudinary.com/dqxiijdlw/image/upload/v1773613068/28chainsawman_onptbg.jpg"
                               className="card d-block w-100"
                               style={{
                                 maxHeight: "40vh",
@@ -778,7 +778,7 @@ const CategoriesCarousel = () => {
                         <div className="card border-0">
                           <div className="card-img">
                             <img
-                              src="https://cdn.beahero.gg/2022/09/Anime-Kage-no-Jitsuryokusha-ni-Naritakute-ya-tiene-fecha-de-lanzamiento-y-nuevo-trailer-promocional.jpg"
+                              src="https://res.cloudinary.com/dqxiijdlw/image/upload/v1773613068/29kagenojitsuyokusha_alfvlw.jpg"
                               className="d-block w-100"
                               style={{
                                 maxHeight: "40vh",
@@ -798,7 +798,7 @@ const CategoriesCarousel = () => {
                         <div className="card border-0">
                           <div className="card-img">
                             <img
-                              src="https://static.promediateknologi.id/crop/0x0:0x0/0x0/webp/photo/p2/243/2024/08/30/LinkClick_LuGuang_ChengXiaoShi_SeasonOne_OfficialWallpaper-1710955153.jpg"
+                              src="https://res.cloudinary.com/dqxiijdlw/image/upload/v1773613069/30linkclick_mk3hpy.webp"
                               className="d-block w-100"
                               style={{
                                 maxHeight: "40vh",
@@ -818,7 +818,7 @@ const CategoriesCarousel = () => {
                         <div className="card border-0">
                           <div className="card-img">
                             <img
-                              src="https://tierragamer.com/wp-content/uploads/2024/06/konosuba-capitulo-once.webp"
+                              src="https://res.cloudinary.com/dqxiijdlw/image/upload/v1773613071/31konosuba_zie4na.webp"
                               className="d-block w-100"
                               style={{
                                 maxHeight: "40vh",
@@ -838,7 +838,7 @@ const CategoriesCarousel = () => {
                         <div className="card border-0">
                           <div className="card-img">
                             <img
-                              src="https://easycdn.es/1/series/capi/capitulo_100670.jpg"
+                              src="https://res.cloudinary.com/dqxiijdlw/image/upload/v1773613071/32kuroshitsuji_rrhyef.jpg"
                               className="d-block w-100"
                               style={{
                                 maxHeight: "40vh",
