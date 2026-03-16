@@ -37,14 +37,29 @@ const RankingAnime = () => {
 
   useEffect(() => {
     const url = "https://api.jikan.moe/v4/top/anime";
+    const targetTop = 12;
 
     const getAnime = async () => {
       try {
-        const response = await fetch(`${url}?limit=12`);
+        // Jikan puede devolver ranks desordenados o con huecos en lotes pequeños.
+        const response = await fetch(`${url}?limit=25`);
         const data = await response.json();
-        // Ordenar los animes por ranking de menor a mayor
-        const sortedAnimeList = data.data.sort((a, b) => a.rank - b.rank);
-        setAnimeList(sortedAnimeList);
+
+        // Dedupe por rank, ordenar y tomar solo el top objetivo.
+        const uniqueByRank = new Map<number, Anime>();
+
+        data.data.forEach((anime: Anime) => {
+          if (!uniqueByRank.has(anime.rank)) {
+            uniqueByRank.set(anime.rank, anime);
+          }
+        });
+
+        const normalizedTop = Array.from(uniqueByRank.values())
+          .filter((anime) => anime.rank <= targetTop)
+          .sort((a, b) => a.rank - b.rank)
+          .slice(0, targetTop);
+
+        setAnimeList(normalizedTop);
       } catch (error) {
         console.error("Error getting anime:", error);
       }
@@ -71,9 +86,12 @@ const RankingAnime = () => {
       </IconContext.Provider>
 
       <div className="row" id="row-ranking">
-        {animeList.map((result, index) => {
+        {animeList.map((result) => {
           return (
-            <div key={index} className="col-md-3 mt-3 g-2">
+            <div
+              key={`${result.rank}-${result.title}`}
+              className="col-md-3 mt-3 g-2"
+            >
               <div className="card formbg">
                 <img
                   className="card border-0"
